@@ -1,0 +1,12 @@
+[{
+  "title": "Basic Category",
+  "items": [{
+      "title": "안녕",
+      "uuid": "basicDialogue"
+    },
+    {
+      "title": "테스트",
+      "uuid": "basicDialogue"
+    }
+  ]
+}]
