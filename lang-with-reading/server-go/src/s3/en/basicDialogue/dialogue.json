@@ -1,0 +1,15 @@
+{
+	"uuid": "basicDialoge",
+	"title": "hello",
+	"lang": "en",
+	"speakers": [{
+		"uuid": "maya-speaker",
+		"paragraphs": [
+			0
+		]
+	}],
+	"paragraphs": [
+		"Hi, I am Maya"
+	],
+	"CreatedAt": "2019-09-03T22:15:14.701196567+09:00"
+}
