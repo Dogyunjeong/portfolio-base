@@ -1,12 +1,19 @@
 <template>
-  <DefaultStaticText />
+  <v-row>
+    This is home
+  </v-row>
 </template>
 
 <script>
-import DefaultStaticText from '~/components/staticTexts/DefaultStaticText/DefaultStaticText.vue'
+import Logo from '~/components/Logo.vue'
+import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import template from '~/template'
+
 export default {
+  layout: template.layout,
   components: {
-    DefaultStaticText,
+    Logo,
+    VuetifyLogo
   }
 }
 </script>

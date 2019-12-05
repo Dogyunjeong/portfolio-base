@@ -3,12 +3,8 @@
     <DefaultTitleBar />
     <v-content>
       <v-container>
-        <v-row  justify="center" >
-          <v-col
-              col="12"
-              md="8"
-              lg="6"
-          >
+        <v-row justify="center">
+          <v-col col="12" md="8" lg="6">
             <nuxt />
           </v-col>
         </v-row>
@@ -21,6 +17,5 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>

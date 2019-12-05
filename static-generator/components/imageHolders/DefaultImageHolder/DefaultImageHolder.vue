@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <img class="static--text-image" :src="img.src" :alt="img.alt" />
+      <img :src="img.src" :alt="img.alt" class="static--text-image" />
     </v-col>
   </v-row>
 </template>
@@ -14,11 +14,10 @@ export default {
       default() {
         return {
           src: require('~/assets/silver-tree-painting.webp'),
-          alt: 'Sivler tree that khan drinked fountain in karakorum',
+          alt: 'Sivler tree that khan drinked fountain in karakorum'
         }
       }
-    },
-
+    }
   }
 }
 </script>
