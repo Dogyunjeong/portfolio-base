@@ -1,0 +1,31 @@
+import { Header } from './Header'
+import { Footer } from './Footer'
+import LayoutTypes from '../../types/layout.type'
+
+interface PortfolioProps {
+  header?: LayoutTypes.header
+  footer?: LayoutTypes.footer
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ header = {}, children, footer = {} }) => {
+  return (
+    <>
+      <Header
+        navItems={header.navItems}
+        title={header.title}
+      />
+      <main>
+        {children}
+      </main>
+      <Footer
+        rightHolder={footer.rightHolder}
+        createdAt={footer.createdAt}
+      />
+    </>
+  );
+}
+
+export default Portfolio;
+export {
+  Portfolio
+}

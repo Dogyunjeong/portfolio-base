@@ -15,3 +15,4 @@ const FGrid: React.FC<FGridProps> = ({ children, ...others }) => {
 }
 
 export default FGrid;
+export { FGrid }
