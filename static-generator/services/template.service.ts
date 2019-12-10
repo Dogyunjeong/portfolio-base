@@ -1,5 +1,6 @@
 import template from '../template'
 import LayoutTypes from '../types/layout.type'
+import TemplateTypes from '../types/teamplte.type'
 import UserService from './user.service'
 
 export default class TemplateService {
@@ -31,6 +32,12 @@ export default class TemplateService {
     return {
       rightHolder: creator.name,
       createdAt: instance.data.createdAt
+    }
+  }
+
+  static async getPageDetail (pageConfig: TemplateTypes.PageConfig) {
+    if (!pageConfig.firstCol) {
+      return TemplateService.getInstance().data.index
     }
   }
 }

@@ -15,6 +15,11 @@ namespace LayoutTypes {
     rightHolder?: string
     createdAt?: Date
   }
+
+  export interface layoutProps {
+    header: header
+    footer: footer
+  }
 }
 
 export default LayoutTypes
