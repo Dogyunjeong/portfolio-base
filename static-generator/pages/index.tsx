@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react'
-import PortfolioLayout from '../layouts/portfolio/index'
+import DynamicLayout from '../layouts/DynamicLayout'
 import TemplateService from '../services/template.service'
-import LayoutTypes from '../types/layout.type'
+import LayoutTypes, { initialLayoutData } from '../types/layout.type'
+import { Layers } from '@material-ui/icons'
 
 const Home = () => {
-  const [header, setHeader] = useState<LayoutTypes.header>()
-  const [footer, setFooter] = useState<LayoutTypes.footer>()
+  const [layout, setLayout] = useState<LayoutTypes.Layout>(initialLayoutData)
   useEffect(() => {
     (async () => {
-      setHeader(await TemplateService.header())
-      setFooter(await TemplateService.footer())
+      const pageData = await TemplateService.getPageDetail()
+      setLayout(pageData.pageLayout)
     })()
   }, [])
   return (
-    <PortfolioLayout
-      header={header}
-      footer={footer}
+    <DynamicLayout
+      {...layout}
     >
       <h1>Hello world!</h1>
-    </PortfolioLayout>
+    </DynamicLayout>
   );
 }
 

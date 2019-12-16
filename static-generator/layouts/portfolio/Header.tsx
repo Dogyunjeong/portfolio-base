@@ -1,14 +1,9 @@
 import React from 'react';
 import LayoutTypes from '../../types/layout.type'
 
-import LeftDrawer from '../../components/layouts/LeftDrawer'
+import LeftDrawer from '../../components/Layouts/LeftDrawer'
 
-export interface HeaderProps {
-  title?: string
-  navItems?: LayoutTypes.navItems
-}
-
-const Header: React.FC<HeaderProps> = ({ title, navItems }) => {
+const Header: React.FC<LayoutTypes.Header> = ({ title, navItems }) => {
   return (
     <header>
       <LeftDrawer

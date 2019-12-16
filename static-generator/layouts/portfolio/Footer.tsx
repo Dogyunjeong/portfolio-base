@@ -1,6 +1,6 @@
 import LayoutTypes from '../../types/layout.type'
 
-const Footer: React.FC<LayoutTypes.footer> = ({ rightHolder, createdAt }) => {
+const Footer: React.FC<LayoutTypes.Footer> = ({ rightHolder, createdAt }) => {
   return (
     <footer>
       <p>

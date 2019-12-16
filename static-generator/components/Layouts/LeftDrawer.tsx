@@ -4,14 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import LayoutTypes from '../../types/layout.type'
 import { Link } from '../routing'
-import { SelectItem } from '../icons'
+import { SelectItem } from '../Icons'
 
 
 const useStyles = makeStyles({
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
 
 const SideList: React.FC<{
   onClose: () => void,
-  navItems: LayoutTypes.navItems,
+  navItems: LayoutTypes.NavItems,
 }> = ({ onClose, navItems = [] }) => {
   const classes = useStyles();
   return (
@@ -51,7 +50,7 @@ const SideList: React.FC<{
 }
 
 interface LeftDrawerProps {
-  navItems?: LayoutTypes.navItems
+  navItems?: LayoutTypes.NavItems
 }
 
 const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [] }) => {

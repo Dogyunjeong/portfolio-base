@@ -1,25 +1,31 @@
+import ComponentTypes from './component.type'
 namespace LayoutTypes {
-  export interface navItem {
+  export interface NavItem {
     icon: string
     label: string
     to: string
   }
-  export type navItems = navItem[]
+  export type NavItems = NavItem[]
 
-  export interface header {
+  export interface Header {
     title?: string
-    navItems?: navItems
+    navItems?: NavItems
   }
 
-  export interface footer {
+  export interface Footer {
     rightHolder?: string
     createdAt?: Date
   }
 
-  export interface layoutProps {
-    header: header
-    footer: footer
+  export interface Layout extends ComponentTypes.ComponentBase {
+    header?: Header
+    footer?: Footer
   }
+}
+
+export const initialLayoutData: LayoutTypes.Layout = {
+  uuid: '',
+  type: ComponentTypes.ComponentEnum.Layout
 }
 
 export default LayoutTypes

@@ -23,8 +23,8 @@ export default {
       ]
     }
   },
-  '/univ-final-collection': {
-    index: {
+  'univ-final-collection': {
+    'index': {
       uuid: 'portfolio-collection',
       type: 'image-collection',
       images: [

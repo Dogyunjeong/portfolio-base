@@ -1,12 +1,10 @@
 import LayoutTypes from './layout.type'
+import ComponentTypes from './component.type'
 
 namespace TemplateTypes {
-  export interface Layout {
-    uuid: string
-    header: LayoutTypes.header
-  }
   export interface PageContent {
     uuid: string
+    type: string
     [key: string]: any
   }
 
@@ -15,10 +13,11 @@ namespace TemplateTypes {
     creator: string,
     createdAt: string
     updatedAt: string
-    layout: Layout
+    layout: LayoutTypes.Layout
     index: PageContent,
     [key: string]: any
   }
+
   export interface PageConfig {
     firstCol?: string
     firstItem?: string
@@ -26,6 +25,11 @@ namespace TemplateTypes {
     secondItem?: string
     thirdCol?: string
     thirdItem?: string
+  }
+
+  export interface PageDetail {
+    pageDetail: ComponentTypes.Component
+    pageLayout: LayoutTypes.Layout
   }
 }
 

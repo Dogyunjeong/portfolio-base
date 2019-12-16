@@ -1,5 +1,5 @@
 import { useRouter as nextUseRouter, NextRouter } from 'next/router'
-
+import TemplateTypes from '../types/template.type'
 class Router {
   private static _router: NextRouter
   private static _instance: Router
@@ -21,6 +21,11 @@ class Router {
   get query (): { [key: string]: string | string[] } {
     return Router._router.query
   }
+
+  get pageConfig (): TemplateTypes.PageConfig {
+    const pageConfig: TemplateTypes.PageConfig = Router._router.query
+    return pageConfig
+  }
 }
 
 const useRouter = (): Router => {
@@ -30,5 +35,6 @@ const useRouter = (): Router => {
 export default Router
 export {
   Router,
-  useRouter
+  useRouter,
+  nextUseRouter
 }

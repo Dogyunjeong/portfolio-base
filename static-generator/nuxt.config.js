@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const withSass = require('@zeit/next-sass')
 module.exports = withSass({
   cssModules: true,
@@ -10,6 +9,7 @@ module.exports = withSass({
 
     // Example using webpack option
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
+
     return config
   },
   webpackDevMiddleware: config => {
