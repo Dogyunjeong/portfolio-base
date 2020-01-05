@@ -1,4 +1,4 @@
-import template from '../template'
+import template from '../../template'
 import LayoutTypes from '../types/layout.type'
 import TemplateTypes from '../types/template.type'
 import ComponentTypes from '../types/component.type'
@@ -12,27 +12,29 @@ export default class TemplateService {
   private constructor (template: any) {
     this._data = template
   }
-  static getInstance () {
+  static async getInstance () {
     if (!TemplateService.instance) {
       TemplateService.instance = new TemplateService(template)
     }
     return TemplateService.instance
   }
 
-  static get data () {
-    return TemplateService.getInstance()._data
+  private get data () {
+    return this._data
   }
   static async header (): Promise<LayoutTypes.Header> {
+    const instance = await TemplateService.getInstance()
     return {
-      title: TemplateService.data.layout.header.title,
-      navItems: TemplateService.data.layout.header.navItems,
+      title: instance.data.layout.header.title,
+      navItems: instance.data.layout.header.navItems,
     }
   }
   static async footer (): Promise<LayoutTypes.Footer> {
-    const creator = await UserService.getByID(TemplateService.data.creator)
+    const instance = await TemplateService.getInstance()
+    const creator = await UserService.getByID(instance.data.creator)
     return {
       rightHolder: creator.name,
-      createdAt: TemplateService.data.createdAt
+      createdAt: instance.data.createdAt
     }
   }
 
@@ -42,10 +44,11 @@ export default class TemplateService {
     pageDetail: ComponentTypes.Component,
     pageLayout: LayoutTypes.Layout
   }> {
-    let pageDetail = TemplateService.data
-    let pageLayout = TemplateService.data.layout
+    const instance = await TemplateService.getInstance()
+    let pageDetail = instance.data
+    let pageLayout = instance.data.layout
     if (!pageConfig.firstCol) {
-      pageDetail = TemplateService.data.index
+      pageDetail = instance.data.index
     }
     Object.values(pageConfig).forEach((val: string) => {
       if (_.isNil(val)) return

@@ -1,38 +1,17 @@
-import { useState, useEffect } from 'react'
+import * as React from 'react'
+import { useRouter } from '../../utilities/router.util'
 
-import ComponentTypes, { initialComponentData } from '../../types/component.type'
-import LayoutTypes, { initialLayoutData } from '../../types/layout.type'
-import TemplateTypes from '../../types/template.type'
-import TemplateService from '../../services/template.service'
-import { useRouter, nextUseRouter } from '../../utilities/router.util'
-
-import DynamicComponent from '../../components/DynamicComponent'
-import DynamicLayout from '../../layouts/DynamicLayout'
+import DynamicPage from '../../generator-containers/DynamicPage'
 
 export interface FirstColProps {
 }
 const FirstCol: React.FC<FirstColProps> = () => {
-  const router = useRouter()
-  const { firstCol } = router.pageConfig
-  const [componentData, setComponentData] = useState<ComponentTypes.Component>(initialComponentData)
-  const [layoutData, setLayoutData] = useState<LayoutTypes.Layout>(initialLayoutData)
-  useEffect(() => {
-    (async () => {
-      const pageConfig: TemplateTypes.PageConfig = {
-        firstCol,
-      }
-      const { pageDetail, pageLayout }: TemplateTypes.PageDetail
-        = await TemplateService.getPageDetail(pageConfig)
-      setComponentData(pageDetail)
-      setLayoutData(pageLayout)
-    })()
-  }, [firstCol])
-  return (
-    <DynamicLayout {...layoutData} >
-      <DynamicComponent
-        componentData={componentData}
+    const router = useRouter()
+    const { firstCol } = router.pageConfig
+    return (
+      <DynamicPage
+        pageConfig={{ firstCol }}
       />
-    </DynamicLayout>
-  );
-}
+    );
+  }
 export default FirstCol;

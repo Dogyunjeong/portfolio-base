@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Link,
+} from "react-router-dom";
+import { IndexRouter } from './routers/IndexRouter'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,6 +25,12 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <main>
+        <Router>
+          <Link to="/build" >Build Test</Link>
+          <IndexRouter />
+        </Router>
+      </main>
     </div>
   );
 }

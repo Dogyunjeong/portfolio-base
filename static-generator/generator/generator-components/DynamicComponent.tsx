@@ -1,4 +1,4 @@
-
+import * as React from 'react'
 import _ from '../utilities/lodash.util'
 import ComponentTypes from '../types/component.type'
 

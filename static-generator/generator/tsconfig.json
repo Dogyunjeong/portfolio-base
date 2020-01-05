@@ -23,8 +23,9 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@components": ["components"],
-      "@layouts": ["layouts"]
+      "@containers": ["generator-containers"],
+      "@components": ["generator-components"],
+      "@layouts": ["generator-layouts"]
     }
   },
   "exclude": [

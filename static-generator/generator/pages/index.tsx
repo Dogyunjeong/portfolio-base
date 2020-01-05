@@ -1,5 +1,6 @@
+import * as React from 'react'
 import { useState, useEffect } from 'react'
-import DynamicLayout from '../layouts/DynamicLayout'
+import DynamicLayout from '../generator-layouts/DynamicLayout'
 import TemplateService from '../services/template.service'
 import LayoutTypes, { initialLayoutData } from '../types/layout.type'
 import { Layers } from '@material-ui/icons'

@@ -1,3 +1,4 @@
+import React from 'react'
 import PortfolioTypes from '../../types/portfolio.type'
 
 import { FGrid } from '../Layouts'

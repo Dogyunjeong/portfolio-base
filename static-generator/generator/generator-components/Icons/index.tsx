@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Collections as MCollections,
   Info as MInfo,
