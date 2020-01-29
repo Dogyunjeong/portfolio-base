@@ -10,3 +10,6 @@ const WrappedLink: React.SFC<WrappedLinkProps> = ({ href, title }) => {
 }
 
 export default WrappedLink;
+export {
+  WrappedLink as Link,
+}

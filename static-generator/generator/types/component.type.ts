@@ -1,4 +1,4 @@
-namespace ComponentTypes {
+namespace ComponentTypes { // eslint-disable-line
   export enum ComponentEnum {
     Loading = 'Loading',
     ImageCollections = 'ImageCollections',

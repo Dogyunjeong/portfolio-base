@@ -10,7 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import LayoutTypes from '../../types/layout.type'
-import { Link } from '../routing'
+import { Link } from '../../components/Link'
 import { SelectItem } from '../Icons'
 
 

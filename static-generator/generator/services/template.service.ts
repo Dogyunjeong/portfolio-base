@@ -1,9 +1,9 @@
-import template from '../../template'
+import template from '../template'
 import LayoutTypes from '../types/layout.type'
 import TemplateTypes from '../types/template.type'
 import ComponentTypes from '../types/component.type'
 import UserService from './user.service'
-import _ from '../utilities/lodash.util'
+import _ from '../common-utilities/lodash.util'
 
 export default class TemplateService {
   private static instance: TemplateService

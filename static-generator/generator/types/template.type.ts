@@ -1,7 +1,7 @@
 import LayoutTypes from './layout.type'
 import ComponentTypes from './component.type'
 
-namespace TemplateTypes {
+declare namespace TemplateTypes { // eslint-disable-line
   export interface PageContent {
     uuid: string
     type: string

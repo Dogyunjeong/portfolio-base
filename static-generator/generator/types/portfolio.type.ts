@@ -1,4 +1,4 @@
-namespace PortfolioTypes {
+declare namespace PortfolioTypes { // eslint-disable-line
   export interface Image {
     label?: string
     src: string

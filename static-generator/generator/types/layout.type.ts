@@ -1,5 +1,5 @@
 import ComponentTypes from './component.type'
-namespace LayoutTypes {
+declare namespace LayoutTypes { // eslint-disable-line
   export interface NavItem {
     icon: string
     label: string

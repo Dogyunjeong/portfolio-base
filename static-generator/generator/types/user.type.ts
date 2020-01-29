@@ -1,4 +1,4 @@
-export namespace UserTypes {
+export declare namespace UserTypes { // eslint-disable-line
 
   export interface User {
     ID: string
