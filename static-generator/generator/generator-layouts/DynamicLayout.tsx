@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutTypes from '../types/layout.type'
+import LayoutTypes from '../common/types/layout.type'
 
 import Portfolio from './portfolio'
 

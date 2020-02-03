@@ -4,7 +4,9 @@ import TemplateTypes from '../types/template.type'
 import ComponentTypes from '../types/component.type'
 import UserService from './user.service'
 import _ from '../utilities/lodash.util'
-import ExpectedError from '../utilities/ExpectedError'
+import ExpectedError from '../utilities/ExpectedError.util'
+import { t } from '../utilities/i18n.util'
+import uuidGen from '../utilities/uuid.util'
 
 export default class TemplateService {
   private static instance: TemplateService
@@ -47,12 +49,25 @@ export default class TemplateService {
     }
   }
 
+  static async getPageList (): Promise<TemplateTypes.PageList> {
+    const instance = await TemplateService.getInstance()
+    const template = instance.data
+    const pageList: TemplateTypes.PageList = {
+      [template.path]: {}
+    }
+    const makePageList = (pageContent: TemplateTypes.PageContent, list: TemplateTypes.PageList) => {
+      list[pageContent.path] = {}
+      if (pageContent.pages.length > 0) {
+        pageContent.pages.forEach((page) => makePageList(page, list[pageContent.path]))
+      }
+      return list
+    }
+    return makePageList(template, pageList)
+  }
+
   static async getPageDetail (
     pageConfig: TemplateTypes.PageConfig = {}
-  ): Promise<{
-    pageDetail: ComponentTypes.Component,
-    pageLayout: LayoutTypes.Layout
-  }> {
+  ): Promise<TemplateTypes.PageDetail> {
     const instance = await TemplateService.getInstance()
     const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
     const pageDetail: ComponentTypes.Component = pageContent.index
@@ -70,7 +85,10 @@ export default class TemplateService {
     const instance = await TemplateService.getInstance()
     const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
     if (pageContent[url]) {
-      throw new ExpectedError()
+      throw new ExpectedError(t('error.duplicate_url'))
+    }
+    pageContent[url] = {
+      uuid: uuidGen(),
     }
   }
 }

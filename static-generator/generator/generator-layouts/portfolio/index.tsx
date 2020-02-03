@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from './Header'
 import { Footer } from './Footer'
-import LayoutTypes from '../../types/layout.type'
+import LayoutTypes from '../../common/types/layout.type'
 
 interface PortfolioProps extends LayoutTypes.Layout {
 }

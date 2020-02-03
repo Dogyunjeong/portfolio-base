@@ -1,0 +1,9 @@
+{
+  "error": {
+    "duplicate_url": "{{url}} is exist"
+  },
+  "pageBuilder": {
+    "addPage": "Add page"
+  },
+  "test": "this is working"
+}

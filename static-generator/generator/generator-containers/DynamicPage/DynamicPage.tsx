@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import ComponentTypes, { initialComponentData } from '../../types/component.type'
-import LayoutTypes, { initialLayoutData } from '../../types/layout.type'
-import TemplateTypes from '../../types/template.type'
-import TemplateService from '../../services/template.service'
+import ComponentTypes, { initialComponentData } from '../../common/types/component.type'
+import LayoutTypes, { initialLayoutData } from '../../common/types/layout.type'
+import TemplateTypes from '../../common/types/template.type'
+import TemplateService from '../../common/services/template.service'
 
 import DynamicComponent from '../../generator-components/DynamicComponent'
 import DynamicLayout from '../../generator-layouts/DynamicLayout'

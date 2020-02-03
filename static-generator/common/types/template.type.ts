@@ -4,9 +4,10 @@ import ComponentTypes from './component.type'
 declare namespace TemplateTypes { // eslint-disable-line
   export interface PageContent  extends ComponentTypes.ComponentBase{
     uuid: string
-    type: ComponentTypes.ComponentType
+    path: string
     layout?: LayoutTypes.Layout
-    [key: string]: any | PageContent
+    components: ComponentTypes.ComponentBase[]
+    pages: PageContent[]
   }
 
   export interface TemplateV01 {
@@ -26,6 +27,13 @@ declare namespace TemplateTypes { // eslint-disable-line
     secondItem?: string
     thirdCol?: string
     thirdItem?: string
+  }
+  export interface PageDetail {
+    pageDetail: ComponentTypes.Component
+    pageLayout: LayoutTypes.Layout
+  }
+  export interface PageList {
+    [key: string]: PageList
   }
 }
 

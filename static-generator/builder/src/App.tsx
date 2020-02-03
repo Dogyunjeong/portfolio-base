@@ -11,7 +11,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
       <main>
         <Router>
           <Link to="/build" >Build Test</Link>

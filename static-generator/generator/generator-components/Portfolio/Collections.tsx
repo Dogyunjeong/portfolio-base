@@ -1,5 +1,5 @@
 import React from 'react'
-import PortfolioTypes from '../../types/portfolio.type'
+import PortfolioTypes from '../../common/types/portfolio.type'
 
 import { FGrid } from '../Layouts'
 

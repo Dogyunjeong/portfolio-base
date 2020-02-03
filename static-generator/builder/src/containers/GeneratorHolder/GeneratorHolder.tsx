@@ -1,7 +1,7 @@
 import React from 'react'
 import DynamicPage from '../../generator-containers/DynamicPage/DynamicPage'
 
-import TemplateTypes from '../../types/template.type'
+import TemplateTypes from '../../common/types/template.type'
 
 export interface GeneratorHolderProps {
   pageConfig: TemplateTypes.PageConfig

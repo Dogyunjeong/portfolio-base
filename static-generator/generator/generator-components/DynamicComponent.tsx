@@ -1,18 +1,9 @@
 import * as React from 'react'
-import _ from '../common-utilities/lodash.util'
-import ComponentTypes from '../types/component.type'
+import _ from '../common/utilities/lodash.util'
+import ComponentTypes from '../common/types/component.type'
 
 import Loading from './Loading'
 import * as Portfolio from './Portfolio'
-
-// export interface DynamicComponentProps {
-//   firstCol?: string
-//   firstItem?: string
-//   secondCol?: string
-//   secondItem?: string
-//   thirdCol?: string
-//   thirdItem?: string
-// }
 
 export interface DynamicComponentProps {
   componentData: ComponentTypes.Component
