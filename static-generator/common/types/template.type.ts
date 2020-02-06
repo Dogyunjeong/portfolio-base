@@ -1,13 +1,13 @@
-import LayoutTypes from './layout.type'
-import ComponentTypes from './component.type'
+import LayoutTypes, { initialLayoutData } from './layout.type'
+import ComponentTypes, { initialComponentData } from './component.type'
 
 declare namespace TemplateTypes { // eslint-disable-line
-  export interface PageContent  extends ComponentTypes.ComponentBase{
+  export interface PageContent {
     uuid: string
     path: string
-    layout?: LayoutTypes.Layout
     components: ComponentTypes.ComponentBase[]
-    pages: PageContent[]
+    layout?: LayoutTypes.Layout
+    pages?: PageContent[]
   }
 
   export interface TemplateV01 {
@@ -28,13 +28,33 @@ declare namespace TemplateTypes { // eslint-disable-line
     thirdCol?: string
     thirdItem?: string
   }
+
+  export type PageConfigProperty = keyof PageConfig
+
   export interface PageDetail {
-    pageDetail: ComponentTypes.Component
-    pageLayout: LayoutTypes.Layout
+    path: string
+    components: ComponentTypes.Component[]
+    layout: LayoutTypes.Layout
   }
   export interface PageList {
     [key: string]: PageList
   }
+}
+
+
+export const PAGE_CONFIG_PROPERTY: TemplateTypes.PageConfigProperty[] = [
+  'firstCol',
+  'firstItem',
+  'secondCol',
+  'secondItem',
+  'thirdCol',
+  'thirdItem'
+]
+
+export const initialPageDetailData: TemplateTypes.PageDetail = {
+  path: '',
+  components: [initialComponentData],
+  layout: initialLayoutData
 }
 
 export default TemplateTypes

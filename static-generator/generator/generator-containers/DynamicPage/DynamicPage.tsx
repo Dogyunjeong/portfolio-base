@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 
-import ComponentTypes, { initialComponentData } from '../../common/types/component.type'
+import ComponentTypes from '../../common/types/component.type'
 import LayoutTypes, { initialLayoutData } from '../../common/types/layout.type'
-import TemplateTypes from '../../common/types/template.type'
+import TemplateTypes, { initialPageDetailData } from '../../common/types/template.type'
 import TemplateService from '../../common/services/template.service'
 
 import DynamicComponent from '../../generator-components/DynamicComponent'
@@ -14,21 +14,22 @@ export interface DynamicPageProps {
 
 const DynamicPage: React.FC<DynamicPageProps> = (props) => {
   const { pageConfig } = props
-  const [componentData, setComponentData] = useState<ComponentTypes.Component>(initialComponentData)
-  const [layoutData, setLayoutData] = useState<LayoutTypes.Layout>(initialLayoutData)
+  const [pageDetail, setPageDetail] = useState<TemplateTypes.PageDetail>(initialPageDetailData)
   useEffect(() => {
     (async () => {
-      const { pageDetail, pageLayout }: TemplateTypes.PageDetail
+      const pageDetail: TemplateTypes.PageDetail
         = await TemplateService.getPageDetail(pageConfig)
-      setComponentData(pageDetail)
-      setLayoutData(pageLayout)
+      setPageDetail(pageDetail)
     })()
   }, [pageConfig])
   return (
-    <DynamicLayout {...layoutData} >
-      <DynamicComponent
-        componentData={componentData}
-      />
+    <DynamicLayout {...pageDetail.layout} >
+      {pageDetail.components.map((data: ComponentTypes.ComponentBase, idx: number) => 
+        <DynamicComponent
+          key={`${pageDetail.path}-component-${idx}`}
+          componentData={data}
+        />
+      )}
     </DynamicLayout>
   );
 }

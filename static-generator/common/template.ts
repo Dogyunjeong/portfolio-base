@@ -1,5 +1,6 @@
 export default {
   version: 0.1,
+  uuid: 'test-static-web-prototype',
   // Creator should ID for user in the future
   creator: 'by-tati-test-id',
   createdAt: '2019-12-08T12:41:06.219Z',
@@ -24,9 +25,11 @@ export default {
       ]
     }
   },
+  components: [],
   pages: [
     {
       path: 'univ-final-collection',
+      uuid: 'test-page-univ-final-collection',
       components: [{
         uuid: 'portfolio-collection',
         type: 'image-collection',

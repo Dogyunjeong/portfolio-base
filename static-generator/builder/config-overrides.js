@@ -1,5 +1,5 @@
 
-const resolve = require('resolve');
+const path = require('path');
 
 module.exports = (config, env) => {
   const babelMatch = /\.(js|mjs|jsx|ts|tsx)$/
@@ -31,9 +31,14 @@ module.exports = (config, env) => {
   // babelLoader.test = /\.(js|mjs|jsx)$/
   // const tsLoader = {
   //   test: /\.tsx?$/,
-  //   loader: 'ts-loader'
+  //   use: [
+  //       { loader: 'ts-loader', options: { happyPackMode: true } }
+  //   ],
+  //   exclude: path.resolve(process.cwd(), 'node_modules'),
+  //   include: path.resolve(process.cwd(), 'src'),
   // }
-  // config.module.rules[oneOfIdx].oneOf.splice(babelLoaderIdx - 1, 0, tsLoader)
+  // config.module.rules[oneOfIdx].oneOf.push(tsLoader)
+  // loggingTest(config.module.rules[oneOfIdx].oneOf)
   return {
     ...config, resolve: { ...config.resolve, symlinks: false }
   }

@@ -6,34 +6,40 @@ import { Button } from '../../common/components/Button'
 import { t } from '../../common/utilities/i18n.util'
 import _ from '../../common/utilities/lodash.util'
 import TemplateService from '../../common/services/template.service'
+import TemplateTypes from '../../common/types/template.type'
 
 export interface PageBuilderProps {
 }
-const parseUrlList = (urlList: {[key:string]: any }, keys: string[] = [], setAddingUrl: Function): ListData[] => {
+const parseUrlList = (urlList: {[key:string]: any }, keys: string[] = [], setBaseUrlSet: React.Dispatch<string[]>): ListData[] => {
   const formattedList: ListData[] = []
   Object.keys(urlList).forEach((key) => {
+    const handleAddingPage = (e: React.MouseEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+      setBaseUrlSet([...keys, key])
+    }
     const listData: ListData = {
       primary: `/${key}`,
-      secondaryAction: <Button onClick={() => setAddingUrl(keys)} >Add page</Button>
+      children: <Button onClick={handleAddingPage} >Add page</Button>
     }
     if (Object.keys(urlList[key]).length > 0) {
-      listData.listData = parseUrlList(urlList[key], [...keys, key], setAddingUrl)
+      listData.listData = parseUrlList(urlList[key], [...keys, key], setBaseUrlSet)
     }
     formattedList.push(listData)
   })
   return formattedList
 }
-const getFormattedList = _.memoize((urlList, setAddingUrl) => {
+const getFormattedList = (urlList: TemplateTypes.PageList, setBaseUrlSet: React.Dispatch<string[]>) => {
   if (!urlList || Object.keys(urlList).length === 0)
     return
-  const formattedList: ListData[] = parseUrlList(urlList, [], setAddingUrl)
+  const formattedList: ListData[] = parseUrlList(urlList, [], setBaseUrlSet)
   return formattedList
-})
+}
 
 const PageBuilder: React.SFC<PageBuilderProps> = () => {
-  const [urlList, setUrlList] = useState()
-  const [addingUrl, setAddingUrl] = useState()
-  const [url, setUrl] = useState()
+  const [urlList, setUrlList] = useState<TemplateTypes.PageList>({})
+  const [baseUrlSet, setBaseUrlSet] = useState<string[]>([])
+  const [url, setUrl] = useState('')
 
   useEffect(() => {
     (async () => {
@@ -43,18 +49,20 @@ const PageBuilder: React.SFC<PageBuilderProps> = () => {
     return
   }, [])
 
-  const handleAddPage = async () => {
-    await TemplateService.addPage({}, url)
+  const handleAddPage = (): void => {
+    (async () => {
+      await TemplateService.addPage(baseUrlSet.join('/'), url)
+    })()
   }
 
-  const formattedList = getFormattedList(urlList, setAddingUrl)
+  const formattedList = getFormattedList(urlList, setBaseUrlSet)
 
   return (
     <>
       <FormattedList
         listData={formattedList}
       />
-      {addingUrl && (
+      {baseUrlSet.length > 0 && (
         <>
           <TextInput label="url" onChange={(event) => setUrl(event.target.value)} />
           <Button onClick={handleAddPage} >

@@ -17,6 +17,7 @@ export interface ListItemProps {
   secondaryAction?: React.ReactElement
   onClick?: React.MouseEventHandler<Element>
   open?: boolean
+  children?: any
 }
 
 const ListItem: React.SFC<ListItemProps> = ({
@@ -27,8 +28,7 @@ const ListItem: React.SFC<ListItemProps> = ({
       {icon && <MListItemIcon>{icon}</MListItemIcon>}
       {(primary || secondary) && <MListItemText primary={primary} secondary={secondary} />}
       {children}
-      {/* {!_.isNil(secondaryAction) && <MListItemSecondaryAction>{secondaryAction}</MListItemSecondaryAction>} */}
-      {secondaryAction}
+      {!_.isNil(secondaryAction) && <MListItemSecondaryAction>{secondaryAction}</MListItemSecondaryAction>}
       {!_.isNil(open) && (open ? <ExpandLess /> : <ExpandMore />)}
     </>
   )
