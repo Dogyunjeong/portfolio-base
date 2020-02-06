@@ -72,18 +72,3 @@ export default {
     }
   }
 }
-
-const test = {
-  index: {
-    layout: {},
-    content: {},
-  },
-  firstCol: {
-    layout: {},
-    index: {},
-    '2019-summber': {
-      layout: {},
-      content: {},
-    }
-  }
-}

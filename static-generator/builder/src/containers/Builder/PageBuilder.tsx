@@ -4,12 +4,12 @@ import FormattedList, { ListData } from '../../common/components/List/FormattedL
 import TextInput from '../../common/components/Input/TextInput'
 import { Button } from '../../common/components/Button'
 import { t } from '../../common/utilities/i18n.util'
-import _ from '../../common/utilities/lodash.util'
 import TemplateService from '../../common/services/template.service'
 import TemplateTypes from '../../common/types/template.type'
 
 export interface PageBuilderProps {
 }
+
 const parseUrlList = (urlList: {[key:string]: any }, keys: string[] = [], setBaseUrlSet: React.Dispatch<string[]>): ListData[] => {
   const formattedList: ListData[] = []
   Object.keys(urlList).forEach((key) => {

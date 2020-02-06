@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ComponentTypes from '../../common/types/component.type'
-import LayoutTypes, { initialLayoutData } from '../../common/types/layout.type'
 import TemplateTypes, { initialPageDetailData } from '../../common/types/template.type'
 import TemplateService from '../../common/services/template.service'
 
