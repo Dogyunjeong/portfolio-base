@@ -1,0 +1,1 @@
+export const BUILDER_BASE = '/build'

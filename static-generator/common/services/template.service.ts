@@ -7,7 +7,9 @@ import _ from '../utilities/lodash.util'
 import ExpectedError from '../utilities/ExpectedError.util'
 import { t } from '../utilities/i18n.util'
 import uuidGen from '../utilities/uuid.util'
+import { BUILDER_BASE } from '../configs/domain.config'
 
+const builderPathMatcher = new RegExp(BUILDER_BASE)
 export default class TemplateService {
   private static instance: TemplateService
   private _data: any
@@ -49,7 +51,7 @@ export default class TemplateService {
   }
 
   public static urlToPageConfig (url: string): TemplateTypes.PageConfig {
-    const urlArr: string[] = url.split('/')
+    const urlArr: string[] = url.replace(builderPathMatcher, '').split('/')
     const pageConfig: TemplateTypes.PageConfig = {}
     urlArr.forEach((colName, idx) => {
       pageConfig[TemplateService.pageConfigProperty[idx]] = colName
