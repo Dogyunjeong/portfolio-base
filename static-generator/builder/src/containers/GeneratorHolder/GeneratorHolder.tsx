@@ -1,5 +1,5 @@
 import React from 'react'
-import DynamicPage from '../../generator-containers/DynamicPage/DynamicPage'
+import DynamicPage from '../../common/containers/Dynamic/DynamicPage'
 
 import TemplateTypes from '../../common/types/template.type'
 

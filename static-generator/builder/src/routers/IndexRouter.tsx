@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { BUILDER_BASE } from '../common/configs/domain.config'
+import { BUILDER_BASE } from '../configs/domain.config'
 
 import { BuildRouter } from './BuildRouter'
 

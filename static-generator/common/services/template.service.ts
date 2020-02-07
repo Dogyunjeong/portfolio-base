@@ -7,7 +7,7 @@ import _ from '../utilities/lodash.util'
 import ExpectedError from '../utilities/ExpectedError.util'
 import { t } from '../utilities/i18n.util'
 import uuidGen from '../utilities/uuid.util'
-import { BUILDER_BASE } from '../configs/domain.config'
+import { BUILDER_BASE } from '../../configs/domain.config'
 
 const builderPathMatcher = new RegExp(BUILDER_BASE)
 export default class TemplateService {

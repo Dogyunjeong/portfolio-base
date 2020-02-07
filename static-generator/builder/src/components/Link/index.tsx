@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { BUILDER_BASE } from '../../common/configs/domain.config'
+import { BUILDER_BASE } from '../../configs/domain.config'
 export interface WrappedLinkProps {
   to?: string
   href?: string
