@@ -11,6 +11,17 @@ export default {
     uuid: 'portfolio',
     header: {
       title: 'by Tati',
+      drawer: {
+        components: [
+          {
+            uuid: 'custom-link-button',
+            type: 'button',
+            label: 'by Tati',
+            to: '/',
+          }
+        ]
+      },
+      // remove nav items.
       navItems: [
         {
           icon: 'Info',
