@@ -1,4 +1,4 @@
-import ComponentTypes from './component.type'
+import CustomComponentTypes from './customComponent.type'
 declare namespace CustomLayoutTypes { // eslint-disable-line
   export interface NavItem {
     icon: string
@@ -17,7 +17,7 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
     createdAt?: Date
   }
 
-  export interface Layout extends ComponentTypes.ComponentBase {
+  export interface Layout extends CustomComponentTypes.CustomComponentBase {
     header?: Header
     footer?: Footer
   }
@@ -25,7 +25,8 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
 
 export const initialLayoutData: CustomLayoutTypes.Layout = {
   uuid: '',
-  type: ComponentTypes.ComponentEnum.Layout
+  name: '',
+  type: CustomComponentTypes.CustomComponents.layout
 }
 
 export default CustomLayoutTypes

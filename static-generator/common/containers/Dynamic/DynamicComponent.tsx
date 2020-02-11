@@ -1,12 +1,12 @@
 import React from 'react'
 import _ from '../../utilities/lodash.util'
-import ComponentTypes from '../../types/component.type'
+import CustomComponentTypes from '../../types/customComponent.type'
 
 import Loading from '../../components/Loading'
 import * as Portfolio from '../../../custom/components/Portfolio'
 
 export interface DynamicComponentProps {
-  componentData: ComponentTypes.Component
+  componentData: CustomComponentTypes.CustomComponentBase
 }
 
 const DynamicComponent: React.FC<DynamicComponentProps> = ({ componentData }) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Header } from './Header'
 import { Footer } from './Footer'
-import LayoutTypes from '../../common/types/layout.type'
+import CustomLayoutTypes from '../../common/types/customLayout.type'
 
-interface PortfolioProps extends LayoutTypes.Layout {
+interface PortfolioProps extends CustomLayoutTypes.Layout {
 }
 
 const Portfolio: React.FC<PortfolioProps> = ({ header = {}, children, footer = {} }) => {

@@ -1,5 +1,5 @@
 import template from '../template'
-import LayoutTypes from '../types/layout.type'
+import CustomLayoutTypes from '../types/customLayout.type'
 import TemplateTypes from '../types/template.type'
 import ComponentTypes from '../types/component.type'
 import UserService from './user.service'
@@ -31,14 +31,14 @@ export default class TemplateService {
     })
     return pageContent
   }
-  static async header (): Promise<LayoutTypes.Header> {
+  static async header (): Promise<CustomLayoutTypes.Header> {
     const instance = await TemplateService.getInstance()
     return {
       title: instance.data.layout.header.title,
       navItems: instance.data.layout.header.navItems,
     }
   }
-  static async footer (): Promise<LayoutTypes.Footer> {
+  static async footer (): Promise<CustomLayoutTypes.Footer> {
     const instance = await TemplateService.getInstance()
     const creator = await UserService.getByID(instance.data.creator)
     return {
@@ -51,12 +51,12 @@ export default class TemplateService {
     pageConfig: TemplateTypes.PageConfig = {}
   ): Promise<{
     pageDetail: ComponentTypes.Component,
-    pageLayout: LayoutTypes.Layout
+    pageLayout: CustomLayoutTypes.Layout
   }> {
     const instance = await TemplateService.getInstance()
     const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
     const pageDetail: ComponentTypes.Component = pageContent.index
-    let pageLayout: LayoutTypes.Layout = instance.data.layout
+    let pageLayout: CustomLayoutTypes.Layout = instance.data.layout
     if (pageContent.layout) {
       pageLayout = pageContent.layout
     }

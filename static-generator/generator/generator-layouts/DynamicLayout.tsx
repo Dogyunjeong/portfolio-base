@@ -1,10 +1,10 @@
 import React from 'react';
-import LayoutTypes from '../common/types/layout.type'
+import CustomLayoutTypes from '../common/types/customLayout.type'
 
 import Portfolio from './portfolio'
 
 
-const DynamicPortfolio: React.FC<LayoutTypes.Layout> = (layoutData) => {
+const DynamicPortfolio: React.FC<CustomLayoutTypes.Layout> = (layoutData) => {
   switch (layoutData.uuid) {
     case 'portfolio': return <Portfolio {...layoutData} />
     default:

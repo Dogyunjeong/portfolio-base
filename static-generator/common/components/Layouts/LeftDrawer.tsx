@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import LayoutTypes from '../../types/layout.type'
+import CustomLayoutTypes from '../../types/customLayout.type'
 import { Link } from '../../../components/Link'
 import { SelectItem } from '../Icons'
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 const SideList: React.FC<{
   onClose: () => void,
-  navItems: LayoutTypes.NavItems,
+  navItems: CustomLayoutTypes.NavItems,
 }> = ({ onClose, navItems = [] }) => {
   const classes = useStyles();
   return (
@@ -51,7 +51,7 @@ const SideList: React.FC<{
 }
 
 interface LeftDrawerProps {
-  navItems?: LayoutTypes.NavItems
+  navItems?: CustomLayoutTypes.NavItems
 }
 
 const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [] }) => {

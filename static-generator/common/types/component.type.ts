@@ -1,3 +1,4 @@
+// TODO: remove component types and using customComponent types
 namespace ComponentTypes { // eslint-disable-line
   export enum ComponentEnum {
     Loading = 'Loading',

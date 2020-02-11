@@ -2,11 +2,11 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import DynamicLayout from '../generator-layouts/DynamicLayout'
 import TemplateService from '../services/template.service'
-import LayoutTypes, { initialLayoutData } from '../types/layout.type'
+import CustomLayoutTypes, { initialLayoutData } from '../types/customLayout.type'
 import { Layers } from '@material-ui/icons'
 
 const Home = () => {
-  const [layout, setLayout] = useState<LayoutTypes.Layout>(initialLayoutData)
+  const [layout, setLayout] = useState<CustomLayoutTypes.Layout>(initialLayoutData)
   useEffect(() => {
     (async () => {
       const pageData = await TemplateService.getPageDetail()

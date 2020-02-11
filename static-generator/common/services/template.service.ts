@@ -1,7 +1,7 @@
 import template from '../template'
-import LayoutTypes from '../types/layout.type'
+import CustomLayoutTypes from '../types/customLayout.type'
 import TemplateTypes, { PAGE_CONFIG_PROPERTY } from '../types/template.type'
-import ComponentTypes from '../types/component.type'
+import CustomComponentTypes from '../types/customComponent.type'
 import UserService from './user.service'
 import _ from '../utilities/lodash.util'
 import ExpectedError from '../utilities/ExpectedError.util'
@@ -35,7 +35,7 @@ export default class TemplateService {
   }
 
   private getPageContent (pageConfig: TemplateTypes.PageConfig): TemplateTypes.PageContent {
-    let pageContent: TemplateTypes.PageContent = this._data
+    let pageContent: TemplateTypes.PageContent = this._data.pages[0]
     
     TemplateService.pageConfigProperty.forEach((property: TemplateTypes.PageConfigProperty) => {
       if (pageConfig[property]) {
@@ -69,14 +69,14 @@ export default class TemplateService {
     return pathArr.join('/')
   }
 
-  public static async header (): Promise<LayoutTypes.Header> {
+  public static async header (): Promise<CustomLayoutTypes.Header> {
     const instance = await TemplateService.getInstance()
     return {
       title: instance.data.layout.header.title,
       navItems: instance.data.layout.header.navItems,
     }
   }
-  public static async footer (): Promise<LayoutTypes.Footer> {
+  public static async footer (): Promise<CustomLayoutTypes.Footer> {
     const instance = await TemplateService.getInstance()
     const creator = await UserService.getByID(instance.data.creator)
     return {
@@ -87,7 +87,7 @@ export default class TemplateService {
 
   public static async getPageList (): Promise<TemplateTypes.PageList> {
     const instance = await TemplateService.getInstance()
-    const template = instance.data
+    const template = instance.data.pages[0]
     const pageList: TemplateTypes.PageList = {
       [template.path]: {}
     }
@@ -106,8 +106,8 @@ export default class TemplateService {
   ): Promise<TemplateTypes.PageDetail> {
     const instance = await TemplateService.getInstance()
     const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
-    const components: ComponentTypes.Component[] = pageContent.components
-    let layout: LayoutTypes.Layout = instance.data.layout
+    const components: CustomComponentTypes.CustomComponentBase[] = pageContent.components
+    let layout: CustomLayoutTypes.Layout = instance.data.layout
     if (pageContent.layout) {
       layout = pageContent.layout
     }

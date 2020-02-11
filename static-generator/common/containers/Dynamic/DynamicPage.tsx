@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import ComponentTypes from '../../types/component.type'
+import CustomComponentTypes from '../../types/customComponent.type'
 import TemplateTypes, { initialPageDetailData } from '../../types/template.type'
 import TemplateService from '../../services/template.service'
 
@@ -23,7 +23,7 @@ const DynamicPage: React.FC<DynamicPageProps> = (props) => {
   }, [pageConfig])
   return (
     <DynamicLayout {...pageDetail.layout} >
-      {pageDetail.components.map((data: ComponentTypes.ComponentBase, idx: number) => 
+      {pageDetail.components.map((data: CustomComponentTypes.CustomComponentBase, idx: number) => 
         <DynamicComponent
           key={`${pageDetail.path}-component-${idx}`}
           componentData={data}

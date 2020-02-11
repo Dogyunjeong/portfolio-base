@@ -1,12 +1,12 @@
-import LayoutTypes, { initialLayoutData } from './layout.type'
-import ComponentTypes, { initialComponentData } from './component.type'
+import CustomLayoutTypes, { initialLayoutData } from './customLayout.type'
+import CustomComponentTypes, { initialCustomComponentData } from './customComponent.type'
 
 declare namespace TemplateTypes { // eslint-disable-line
   export interface PageContent {
     uuid: string
     path: string
-    components: ComponentTypes.ComponentBase[]
-    layout?: LayoutTypes.Layout
+    components: CustomComponentTypes.CustomComponentBase[]
+    layout?: CustomLayoutTypes.Layout
     pages?: PageContent[]
   }
 
@@ -15,7 +15,7 @@ declare namespace TemplateTypes { // eslint-disable-line
     creator: string,
     createdAt: string
     updatedAt: string
-    layout: LayoutTypes.Layout
+    layout: CustomLayoutTypes.Layout
     index: PageContent,
     [key: string]: any | PageContent
   }
@@ -33,8 +33,8 @@ declare namespace TemplateTypes { // eslint-disable-line
 
   export interface PageDetail {
     path: string
-    components: ComponentTypes.Component[]
-    layout: LayoutTypes.Layout
+    components: CustomComponentTypes.CustomComponentBase[]
+    layout: CustomLayoutTypes.Layout
   }
   export interface PageList {
     [key: string]: PageList
@@ -53,7 +53,7 @@ export const PAGE_CONFIG_PROPERTY: TemplateTypes.PageConfigProperty[] = [
 
 export const initialPageDetailData: TemplateTypes.PageDetail = {
   path: '',
-  components: [initialComponentData],
+  components: [initialCustomComponentData],
   layout: initialLayoutData
 }
 

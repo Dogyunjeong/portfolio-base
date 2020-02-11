@@ -1,11 +1,11 @@
-import LayoutTypes from './layout.type'
+import CustomLayoutTypes from './customLayout.type'
 import ComponentTypes from './component.type'
 
 declare namespace TemplateTypes { // eslint-disable-line
   export interface PageContent  extends ComponentTypes.ComponentBase{
     uuid: string
     type: ComponentTypes.ComponentType
-    layout?: LayoutTypes.Layout
+    layout?: CustomLayoutTypes.Layout
     [key: string]: any | PageContent
   }
 
@@ -14,7 +14,7 @@ declare namespace TemplateTypes { // eslint-disable-line
     creator: string,
     createdAt: string
     updatedAt: string
-    layout: LayoutTypes.Layout
+    layout: CustomLayoutTypes.Layout
     index: PageContent,
     [key: string]: any | PageContent
   }

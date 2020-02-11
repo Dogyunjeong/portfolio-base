@@ -6,12 +6,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import LayoutTypes from '../../../common/types/layout.type'
+import CustomLayoutTypes from '../../../common/types/customLayout.type'
 import CustomLink from '../../../common/components/Link/CustomLink'
 import CustomButton from '../../../common/components/Button/CustomButton'
 import { SelectItem } from '../../../common/components/Icons'
 
 
+// TODO: this make styles should be wrapped
+//   something like custom hooks
+// TODO: need to find way how to update each components styles and update on template.ts
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -24,7 +27,7 @@ const useStyles = makeStyles({
 
 const SideList: React.FC<{
   onClose: () => void,
-  navItems: LayoutTypes.NavItems,
+  navItems: CustomLayoutTypes.NavItems,
 }> = ({ onClose, navItems = [] }) => {
   const classes = useStyles({});
   return (
@@ -48,12 +51,14 @@ const SideList: React.FC<{
   );
 }
 
-interface LeftDrawerProps {
-  navItems?: LayoutTypes.NavItems
+export interface LeftDrawerProps {
+  navItems?: CustomLayoutTypes.NavItems
+  opened?: boolean
 }
 
-const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [] }) => {
-  const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
+// TODO: all things provided by builder should be come from context API so any component can use it
+const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], opened = false }) => {
+  const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(opened);
 
   const toggleDrawer = (
     event: React.KeyboardEvent | React.MouseEvent,
