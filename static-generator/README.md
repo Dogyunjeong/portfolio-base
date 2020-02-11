@@ -45,3 +45,16 @@ MPA with two server.
 - builder: Contain Builder web app
 - generator: Static generator server. for conviniens we are usning SSR while developing
 - configs: Basically all configs will be store in this folder.
+
+### Custom component structures
+
+Common termionology of containers and components are not applied in here.
+So all word definition is different with common understading of SPA/MPA
+
+- Component: indicate all of components or containers in common way.
+  - area component: This component is most basic component which will definied area for set of components
+  - content components: This is component which contains functionalities. It doesn't allowed to add buiding component.
+  - container compoonent: has functionalities or organized looks and can add more building components in choosed area.
+- Layout: **Need to be redesign**
+  - old definition: component which has footer, header and nav.
+  - new definition: it seems layout is a special container component which hold footer and header
