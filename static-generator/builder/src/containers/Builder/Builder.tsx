@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TemplateTypes from '../../common/types/template.type'
-import { usePageConfig } from '../../common/hooks/template.hooks'
+import { usePageConfig } from '../../common/hooks/template.hook'
 import { FGrid } from '../../common/components/Layouts'
 import GeneratorHolder from '../GeneratorHolder/GeneratorHolder'
 import PageBuilder from './PageBuilder'
