@@ -1,3 +1,5 @@
+import BuildTypes from './build.type'
+
 namespace CustomComponentTypes { // eslint-disable-line
     // Component has two kind, component and container
     export enum CustomComponents {
@@ -16,6 +18,18 @@ namespace CustomComponentTypes { // eslint-disable-line
         name: string
         components?: CustomComponentBase[]
         [key: string]: any
+    }
+
+    export interface CustomComponentBaseProps {
+        // Building props. Building props will be exiting only when build prop is true
+        // TODO: Building props may be need to be seperate and have another type like CustomBuildingComponentBase
+        //      Currently, I postpone the decision.
+        build?: boolean
+        buildingTools?: BuildTypes.BuildingTools
+    }
+
+    export interface CustomComponentProps extends CustomComponentBaseProps {
+        componentData?: CustomComponentBase
     }
 
     export interface CustomComponentListItem {
