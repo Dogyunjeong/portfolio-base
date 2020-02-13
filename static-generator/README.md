@@ -58,3 +58,12 @@ So all word definition is different with common understading of SPA/MPA
 - Layout: **Need to be redesign**
   - old definition: component which has footer, header and nav.
   - new definition: it seems layout is a special container component which hold footer and header
+
+
+## History of decision.
+
+### About Custom component
+
+1. Custom components are a set of buiding and displaying component.
+  - in Buid mode, Custom component will receive set of Building tools which the platform provide. But this will not limiting custom components potential. Custom component can have its own building tools.
+  - As it is set of two component. the concern is that expecting there are two components or one wrapping comopnent which contains the two components. **Currently I decide to expect there is only one wrapping component.**  The reasong is that. 1. This will allow us to recieve a module as a component set. 2. Custom component will have full freedom for developing.
