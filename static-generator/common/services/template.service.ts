@@ -28,22 +28,30 @@ export default class TemplateService {
     return this._data
   }
 
-  private findPageContent (pageContent: TemplateTypes.PageContent, pagePath?: string) {
+  private _findPageContent (pageContent: TemplateTypes.PageContent, pagePath?: string) {
     if (_.isNil(pageContent.pages))
       return null
     return pageContent.pages.find((page) => page.path === pagePath)
   }
 
-  private getPageContent (pageConfig: TemplateTypes.PageConfig): TemplateTypes.PageContent {
+  private _getPageContent (pageConfig: TemplateTypes.PageConfig): TemplateTypes.PageContent {
     let pageContent: TemplateTypes.PageContent = this._data.pages[0]
     
     TemplateService.pageConfigProperty.forEach((property: TemplateTypes.PageConfigProperty) => {
       if (pageConfig[property]) {
-        const content = this.findPageContent(pageContent, pageConfig[property])
+        const content = this._findPageContent(pageContent, pageConfig[property])
         pageContent = content || pageContent
       }
     })
     return pageContent
+  }
+
+  private async _baseFooter (): Promise<CustomLayoutTypes.Footer> {
+    const creator = await UserService.getByID(this.data.creator)
+    return {
+      rightHolder: creator.name,
+      createdAt: this.data.createdAt
+    }
   }
 
   public static get pageConfigProperty () {
@@ -69,22 +77,6 @@ export default class TemplateService {
     return pathArr.join('/')
   }
 
-  public static async header (): Promise<CustomLayoutTypes.Header> {
-    const instance = await TemplateService.getInstance()
-    return {
-      title: instance.data.layout.header.title,
-      navItems: instance.data.layout.header.navItems,
-    }
-  }
-  public static async footer (): Promise<CustomLayoutTypes.Footer> {
-    const instance = await TemplateService.getInstance()
-    const creator = await UserService.getByID(instance.data.creator)
-    return {
-      rightHolder: creator.name,
-      createdAt: instance.data.createdAt
-    }
-  }
-
   public static async getPageList (): Promise<TemplateTypes.PageList> {
     const instance = await TemplateService.getInstance()
     const template = instance.data.pages[0]
@@ -105,8 +97,9 @@ export default class TemplateService {
     pageConfig: TemplateTypes.PageConfig = {}
   ): Promise<TemplateTypes.PageDetail> {
     const instance = await TemplateService.getInstance()
-    const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
+    const pageContent: TemplateTypes.PageContent = instance._getPageContent(pageConfig)
     const components: CustomComponentTypes.CustomComponentBase[] = pageContent.components
+    const baseFooter: CustomLayoutTypes.Footer = await instance._baseFooter()
     let layout: CustomLayoutTypes.Layout = instance.data.layout
     if (pageContent.layout) {
       layout = pageContent.layout
@@ -114,15 +107,18 @@ export default class TemplateService {
     return {
       path: TemplateService.pageConfigToUrl(pageConfig),
       components,
-      layout,
+      layout: {
+        footer: baseFooter,
+        ...layout,
+      },
     }
   }
 
   public static async addPage(baseUrl: string, path: string): Promise<void> {
     const pageConfig: TemplateTypes.PageConfig = TemplateService.urlToPageConfig(baseUrl)
     const instance = await TemplateService.getInstance()
-    const pageContent: TemplateTypes.PageContent = instance.getPageContent(pageConfig)
-    if (pageContent.pages && instance.findPageContent(pageContent, path)) {
+    const pageContent: TemplateTypes.PageContent = instance._getPageContent(pageConfig)
+    if (pageContent.pages && instance._findPageContent(pageContent, path)) {
       throw new ExpectedError(t('error.duplicate_path'))
     }
     if (!pageContent.pages) {
