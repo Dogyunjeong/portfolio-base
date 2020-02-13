@@ -36,7 +36,7 @@ export default {
               to: '/univ-final-collection'
             },
           ]
-        }
+        },
       },
       components: [],
       pages: [

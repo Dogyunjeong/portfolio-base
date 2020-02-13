@@ -27,7 +27,7 @@
     "uuid": "^3.4.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "PORT=4100 react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"

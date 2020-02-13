@@ -2,23 +2,29 @@ import React from 'react';
 import { Header } from './Header'
 import { Footer } from './Footer'
 import CustomLayoutTypes from '../../../common/types/customLayout.type'
+import LeftDrawer from '../../../common/components/Layouts/LeftDrawer'
 
-interface PortfolioProps extends CustomLayoutTypes.Layout {
+interface PortfolioProps extends CustomLayoutTypes.LayoutProps {
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ header = {}, children, footer = {} }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buildingTools }) => {
   return (
     <>
       <Header
-        navItems={header.navItems}
-        title={header.title}
+        left={
+          <LeftDrawer
+            navItems={layoutData.header.navItems}
+            build={build}
+            buildingTools={buildingTools}
+          />
+        }
+        headerData={layoutData.header}
       />
       <main>
         {children}
       </main>
       <Footer
-        rightHolder={footer.rightHolder}
-        createdAt={footer.createdAt}
+        footerData={layoutData.footer}
       />
     </>
   );
