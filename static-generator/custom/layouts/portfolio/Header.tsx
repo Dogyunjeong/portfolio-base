@@ -1,15 +1,13 @@
 import React from 'react';
 import CustomLayoutTypes from '../../../common/types/customLayout.type'
-import LeftDrawer from '../../../common/components/Layouts/LeftDrawer'
 
 
-const Header: React.FC<CustomLayoutTypes.Header> = ({ title, navItems }) => {
+const Header: React.FC<CustomLayoutTypes.HeaderProps> = ({ children, headerData, left, right }) => {
   return (
     <header>
-      <LeftDrawer
-        navItems={navItems}
-      />
-      {title}
+      {left}
+      {children || headerData.title}
+      {right}
     </header>
   );
 }

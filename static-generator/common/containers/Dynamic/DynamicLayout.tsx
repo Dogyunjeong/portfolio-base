@@ -4,12 +4,13 @@ import CustomLayoutTypes from '../../types/customLayout.type'
 import Portfolio from '../../../custom/layouts/portfolio'
 
 
-const DynamicPortfolio: React.FC<CustomLayoutTypes.Layout> = (layoutData) => {
-  switch (layoutData.uuid) {
-    case 'portfolio': return <Portfolio {...layoutData} />
+const DynamicLayout: React.FC<CustomLayoutTypes.LayoutProps> = (props) => {
+console.log("TCL: props", props)
+  switch (props.layoutData.uuid) {
+    case 'portfolio': return <Portfolio {...props} />
     default:
       return (<></>)
   }
 }
 
-export default DynamicPortfolio;
+export default DynamicLayout;

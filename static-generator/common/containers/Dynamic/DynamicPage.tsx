@@ -22,7 +22,7 @@ const DynamicPage: React.FC<DynamicPageProps> = (props) => {
     })()
   }, [pageConfig])
   return (
-    <DynamicLayout {...pageDetail.layout} >
+    <DynamicLayout layoutData={pageDetail.layout} >
       {pageDetail.components.map((data: CustomComponentTypes.CustomComponentBase, idx: number) => 
         <DynamicComponent
           key={`${pageDetail.path}-component-${idx}`}

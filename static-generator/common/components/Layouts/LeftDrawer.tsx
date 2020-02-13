@@ -9,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import CustomComponetTyes from '../../types/customComponent.type'
 import CustomLayoutTypes from '../../types/customLayout.type'
 import { Link } from '../../../components/Link'
 import { SelectItem } from '../Icons'
@@ -50,7 +51,7 @@ const SideList: React.FC<{
   );
 }
 
-interface LeftDrawerProps {
+interface LeftDrawerProps extends CustomComponetTyes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
 }
 
