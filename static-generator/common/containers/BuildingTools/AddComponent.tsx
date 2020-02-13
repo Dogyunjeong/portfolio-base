@@ -23,7 +23,9 @@ export interface AddComponentProps {
 }
 
 // TODO: improve UI with hover button with + icon
-const AddComponent: React.SFC<AddComponentProps> = () => {
+const AddComponent: React.SFC<AddComponentProps> = ({
+    children
+}) => {
     const classes = useStyles(baseStyle)
     const [isAddingComponent, setAddingComponent] = useState(false)
     const [selecteComponentData, setComponentData] = useState<CustomComopnentType.CustomComponentBase | null>(null)
@@ -42,6 +44,7 @@ const AddComponent: React.SFC<AddComponentProps> = () => {
                     <CustomComponentList onSelect={handleSelectComponenet}/>
                 </>
             )}
+            <div>{children}</div>
             <button onClick={toggleAdding}>Add Component</button>
         </>
     )
