@@ -4,8 +4,9 @@ import PortfolioTypes from '../../../common/types/portfolio.type'
 import { FGrid } from '../../../common/components/Layouts'
 
 const PortfolioCollections: React.FC<PortfolioTypes.PortfolioCollectionsProps> = ({
-  images = []
+  componentData
 }) => {
+  const { images } = componentData
   return (
     <FGrid container>
       {images.map((img, idx) => (
