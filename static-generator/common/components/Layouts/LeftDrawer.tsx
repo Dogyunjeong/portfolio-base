@@ -24,11 +24,13 @@ const useStyles = makeStyles({
   },
 });
 
-
-const SideList: React.FC<{
+interface SideListProps extends CustomComponetTyes.CustomComponentProps {
   onClose: () => void,
-  navItems: CustomLayoutTypes.NavItems,
-}> = ({ onClose, navItems = [] }) => {
+  navItems?: CustomLayoutTypes.NavItems,
+}
+const SideList: React.FC<SideListProps> = ({
+  onClose, navItems = [], build, buildingTools
+}) => {
   const classes = useStyles();
   return (
     <div
@@ -46,6 +48,7 @@ const SideList: React.FC<{
             </ListItemText>
           </ListItem>
         ))}
+        {build && buildingTools?.AddComponent && <buildingTools.AddComponent />}
       </List>
     </div>
   );
@@ -55,7 +58,7 @@ interface LeftDrawerProps extends CustomComponetTyes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
 }
 
-const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [] }) => {
+const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], build, buildingTools }) => {
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
 
   const toggleDrawer = (
@@ -87,6 +90,8 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [] }) => {
         <SideList
           onClose={handleClose}
           navItems={navItems}
+          build={build}
+          buildingTools={buildingTools}
         />
       </SwipeableDrawer>
     </div>
