@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CustomComopnentType from '../../types/customComponent.type'
+import CustomComponentType from '../../types/customComponent.type'
 import { useStyles } from '../../hooks/styles.hook'
 import DynamicComponent from '../Dynamic/DynamicComponent'
 
@@ -7,14 +7,19 @@ import CustomComponentList from './CustomComponentList'
 
 const baseStyle = {
     dimBackground: {
+        position: 'fixed',
+        left: '0px',
+        top: '0px',
         backgroundColor: '#eee',
-        width: '100vh',
-        height: '100vw',
+        opacity: 0.8,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9000,
     },
     addingComponent: {
-        backgroundColor: 'white',
-        width: '300px',
-        height: '100px',
+        backgroundColor: 'red',
+        position: 'relative',
+        zIndex: 9100,
     }
 }
 
@@ -28,25 +33,29 @@ const AddComponent: React.SFC<AddComponentProps> = ({
 }) => {
     const classes = useStyles(baseStyle)
     const [isAddingComponent, setAddingComponent] = useState(false)
-    const [selecteComponentData, setComponentData] = useState<CustomComopnentType.CustomComponentBase | null>(null)
-    const toggleAdding = () => setAddingComponent(true)
-    const handleSelectComponenet = (componentData: CustomComopnentType.CustomComponentBase) => setComponentData(componentData)
+    const [selectedComponentData, setComponentData] = useState<CustomComponentType.CustomComponentBase | null>(null)
+    const toggleAdding = (event: React.MouseEvent) => {
+        event.stopPropagation()
+        setAddingComponent(true)
+    }
+    const handleSelectComponent = (componentData: CustomComponentType.CustomComponentBase) => setComponentData(componentData)
     return (
-        <>
-            {isAddingComponent && (
-                <>
-                    <div className={classes.dimBackground} />
-                    <div className={classes.addingComponent}>
-                        {selecteComponentData
-                            ? <DynamicComponent componentData={selecteComponentData} />
-                            : 'Component Area'}
-                    </div>
-                    <CustomComponentList onSelect={handleSelectComponenet}/>
-                </>
-            )}
+        <div className={classes.addComponent} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+            <div className={classes.addingComponent}>
+                Test
+                {selectedComponentData
+                    ? <DynamicComponent componentData={selectedComponentData} />
+                    : 'Component Area'}
+            </div>
             <div>{children}</div>
-            <button onClick={toggleAdding}>Add Component</button>
-        </>
+            {!isAddingComponent && <button onClick={toggleAdding}>Add Component</button>}
+            {isAddingComponent && (
+                <div className={classes.dimBackground}>
+                    {/* TODO: Create positioning wrapper. Need to position component list differently Depend on called component position */}
+                    <CustomComponentList onSelect={handleSelectComponent}/>
+                </div>
+            )}
+        </div>
     )
 }
  
