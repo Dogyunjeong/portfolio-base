@@ -31,45 +31,59 @@
 ## Structure and important
 
 MPA with two server.
-- Builder Web app: This allows user to build a page with combining lyouts and components.
+- Builder Web app: This allows user to build a page with combining layouts and components.
 - Generator Web server: Building static web page with configured template by Builder Web app. Then upload static web page to static hosting server like S3
 - Builder Web server: This is storing point of all the customized components and API server for Builder web app.
 
 
 ### Folder structure
 
-- common: containes all sharable things except configs.
-    - types: Most important and fundermental part of the etire app
+- common: containers all sharable things except configs.
+    - types: Most important and fundamental part of the entire app
     - services: Contains basic business logics.
-- custom: This components should be stored in DB. And we don't use continaers/components approach here. All considers as a component.
+- custom: This components should be stored in DB. And we don't use containers/components approach here. All considers as a component.
 - builder: Contain Builder web app
-- generator: Static generator server. for conviniens we are usning SSR while developing
+- generator: Static generator server. for convenient we are using SSR while developing
 - configs: Basically all configs will be store in this folder.
 
 ### Custom component structures
 
-Common termionology of containers and components are not applied in here.
-So all word definition is different with common understading of SPA/MPA
+Common terminology of containers and components are not applied in here.
+So all word definition is different with common understanding of SPA/MPA
 
 - Component: indicate all of components or containers in common way.
-  - area component: This component is most basic component which will definied area for set of components
-  - content components: This is component which contains functionalities. It doesn't allowed to add buiding component.
-  - container compoonent: has functionalities or organized looks and can add more building components in choosed area.
+  - area component: This component is most basic component which will defined area for set of components
+  - content components: This is component which contains functionalities. It doesn't allowed to add building component.
+  - container components: has functionalities or organized looks and can add more building components in chosen area.
 - Layout: **Need to be redesign**
   - old definition: component which has footer, header and nav.
   - new definition: it seems layout is a special container component which hold footer and header
+
+#### Custom Component in building Mode
+
+All custom components must have building mode.
+
+##### Structure.
+
+1. When the custom components can container components.
+  - child components will be built with 'buildingTools.AddComponent'. AddComponent will return **component template** with onAdded function. The custom component should update the template immediately, so changes will be shown in UI
+
+##### Props for building moe
+  - build - boolean: to distinguish current mode is building mode or not. When it is not a building mode, It will be undefined or false.
+  - buildingTools: the set of building tools.
+
 
 
 ## History of decision.
 
 ### About Custom component
 
-1. Custom components are a set of buiding and displaying component.
-  - in Buid mode, Custom component will receive set of Building tools which the platform provide. But this will not limiting custom components potential. Custom component can have its own building tools.
-  - As it is set of two component. the concern is that expecting there are two components or one wrapping comopnent which contains the two components. **Currently I decide to expect there is only one wrapping component.**  The reasong is that. 1. This will allow us to recieve a module as a component set. 2. Custom component will have full freedom for developing.
+1. Custom components are a set of building and displaying component.
+  - in building mode, Custom component will receive set of Building tools which the platform provide. But this will not limiting custom components potential. Custom component can have its own building tools.
+  - As it is set of two component. the concern is that expecting there are two components or one wrapping component which contains the two components. **Currently I decide to expect there is only one wrapping component.**  The reason is that. 1. This will allow us to receive a module as a component set. 2. Custom component will have full freedom for developing.
 
 
 ### About types
 
 1. Is build type builder specific local type or global common type?
-  - Building tools can be a custom component's prop. In this term, buidl type should be a common type.
+  - Building tools can be a custom component's prop. In this term, build type should be a common type.
