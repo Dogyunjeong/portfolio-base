@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CustomComopnentType from '../../types/customComponent.type'
+import CustomComponentType from '../../types/customComponent.type'
 import FGrid from '../../components/Layouts/FGrid'
 import FormattedList from '../../components/List/FormattedList'
 import { useCustomComponentTypes, useCustomComponentList } from '../../hooks/customComponent.hook'
@@ -13,10 +13,10 @@ const formatTypesForList = (customComponentTypes: string[], onSelect: Function) 
 }
 
 const formatComponentList = (
-    componentList: CustomComopnentType.CustomComponentList,
+    componentList: CustomComponentType.CustomComponentList,
     onSelect?: Function
 ) => {
-    const formattedList = _.memoize((list: CustomComopnentType.CustomComponentList) => {
+    const formattedList = _.memoize((list: CustomComponentType.CustomComponentList) => {
         return list.map((item) => ({
             primary: item.name,
             onClick: onSelect ? () => onSelect(item.uuid) : undefined
@@ -26,7 +26,7 @@ const formatComponentList = (
 }
 
 export interface CustomComponentListProps {
-    onSelect?: (componentUuid: CustomComopnentType.CustomComponentBase) => void
+    onSelect?: (componentUuid: CustomComponentType.CustomComponentBase) => void
 }
  
 const CustomComponentList: React.SFC<CustomComponentListProps> = (props) => {

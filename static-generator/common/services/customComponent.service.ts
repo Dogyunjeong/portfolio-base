@@ -22,7 +22,7 @@ export default class CustomComponentService {
 
     static async getTypes (): Promise<CustomComponentTypes.CustomComponentType[]> {
         const instance = await CustomComponentService.getInstance()
-        if (!instance._types) {
+        if (instance._types.length < 1) {
             instance._types = await CustomComponentApi.listType()
         }
         return instance._types

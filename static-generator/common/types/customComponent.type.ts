@@ -37,6 +37,7 @@ namespace CustomComponentTypes { // eslint-disable-line
         type: CustomComponentType
         name: string
     }
+
     export type CustomComponentList = CustomComponentListItem[]
 }
 

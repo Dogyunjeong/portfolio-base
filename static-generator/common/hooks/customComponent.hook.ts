@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import CustomComopnentType from '../types/customComponent.type'
+import CustomComponentType from '../types/customComponent.type'
 import CustomComponentService from '../services/customComponent.service'
 
 export const useCustomComponentTypes = () => {
-    const [customComponentTypes, setCustomComponentTypes] = useState<CustomComopnentType.CustomComponentType[]>([])
+    const [customComponentTypes, setCustomComponentTypes] = useState<CustomComponentType.CustomComponentType[]>([])
     useEffect(() => {
         (async () => {
             const types = await CustomComponentService.getTypes()
@@ -17,8 +17,8 @@ export interface customComponentListParam {
     type: string,
     include?: string[],
 }
-export const useCustomComponentList = ({ type, include}: customComponentListParam) => {
-    const [customComponentList, setCustomComponentList] = useState<CustomComopnentType.CustomComponentList>([])
+export const useCustomComponentList = ({ type, include }: customComponentListParam) => {
+    const [customComponentList, setCustomComponentList] = useState<CustomComponentType.CustomComponentList>([])
     useEffect(() => {
         (async () => {
             let list = await CustomComponentService.listByType(type)
@@ -27,7 +27,7 @@ export const useCustomComponentList = ({ type, include}: customComponentListPara
             }
             setCustomComponentList(list)
         })()
-    }, [])
+    }, [type, include])
     return customComponentList
 }
 
