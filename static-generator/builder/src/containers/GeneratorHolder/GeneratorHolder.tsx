@@ -1,5 +1,5 @@
 import React from 'react'
-import DynamicPage from '../../common/containers/Dynamic/DynamicPage'
+import DynamicPageBuilder from '../../common/containers/Dynamic/DynamicPage.builder'
 
 import TemplateTypes from '../../common/types/template.type'
 
@@ -9,7 +9,7 @@ export interface GeneratorHolderProps {
 
 const GeneratorHolder: React.FC<GeneratorHolderProps> = (props) => {
   return (
-    <DynamicPage
+    <DynamicPageBuilder
       pageConfig={props.pageConfig}
     />
   )
