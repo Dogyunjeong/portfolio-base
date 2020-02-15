@@ -24,18 +24,18 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
   }
 
 
-  export interface HeaderProps extends CustomComponentTypes.CustomComponentBaseProps {
+  export interface HeaderProps extends CustomComponentTypes.CustomComponentProps {
     headerData: Header
     children?: React.ReactElement
     left?: React.ReactElement,
     right?: React.ReactElement,
   }
 
-  export interface FooterProps extends CustomComponentTypes.CustomComponentBaseProps {
+  export interface FooterProps extends CustomComponentTypes.CustomComponentProps {
     footerData: Footer
   }
 
-  export interface LayoutProps extends CustomComponentTypes.CustomComponentBaseProps {
+  export interface LayoutProps extends CustomComponentTypes.CustomComponentProps {
     layoutData: Layout
   }
 }
