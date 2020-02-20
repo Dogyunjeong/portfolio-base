@@ -76,6 +76,8 @@ All custom components must have building mode.
 
 ## History of decision.
 
+
+
 ### About Custom component
 
 1. Custom components are a set of building and displaying component.

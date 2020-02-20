@@ -13,6 +13,7 @@ namespace CustomComponentTypes { // eslint-disable-line
     }
     export type CustomComponentType = keyof typeof CustomComponents
     export interface CustomComponentBase {
+        // TODO: Need Uuid for Component, this uuid should be for customComponent template Data itself
         uuid: string
         type: CustomComponentType
         name: string

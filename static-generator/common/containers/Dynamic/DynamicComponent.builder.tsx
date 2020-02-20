@@ -1,20 +1,21 @@
 import React from 'react'
 import _ from '../../utilities/lodash.util'
 import CustomComponentTypes from '../../types/customComponent.type'
-
-import Loading from '../../components/Loading'
-import * as Portfolio from '../../../custom/components/Portfolio'
+import DynamicComponent from './DynamicComponent'
+import ModifyComponent from '../BuildingTools/ModifyComponent'
 
 export interface DynamicComponentBuilderProps extends CustomComponentTypes.CustomComponentProps {
 }
 
 const DynamicComponentBuilder: React.FC<DynamicComponentBuilderProps> = (props) => {
-  if (_.isNil(props.componentData)) return <Loading />
-  switch (props.componentData.uuid) {
-    // TODO: props passing must be like DynamicLayout nad DynamicLayoutBuilder
-    case 'portfolio-collection': return <Portfolio.Collections {...props as any} />
-    default: return <Loading />
+  if (!props.build) {
+    return <DynamicComponent {...props} />
   }
+  return (
+    <ModifyComponent>
+      <DynamicComponent {...props} />
+    </ModifyComponent>
+  )
 }
 
 export default DynamicComponentBuilder;

@@ -9,9 +9,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import CustomComponetTyes from '../../types/customComponent.type'
+import CustomComponentTypes from '../../types/customComponent.type'
 import CustomLayoutTypes from '../../types/customLayout.type'
 import { Link } from '../../../components/Link'
+import CustomLink from '../../../custom/components/Link/CustomLink'
 import { SelectItem } from '../Icons'
 
 
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-interface SideListProps extends CustomComponetTyes.CustomComponentProps {
+interface SideListProps extends CustomComponentTypes.CustomComponentProps {
   onClose: () => void,
   navItems?: CustomLayoutTypes.NavItems,
 }
@@ -48,13 +49,15 @@ const SideList: React.FC<SideListProps> = ({
             </ListItemText>
           </ListItem>
         ))}
-        {build && buildingTools?.AddComponent && <buildingTools.AddComponent />}
+        {build && buildingTools?.AddComponent && <buildingTools.AddComponent includes={{
+          link: ['custom-link'],
+        }}/>}
       </List>
     </div>
   );
 }
 
-interface LeftDrawerProps extends CustomComponetTyes.CustomComponentProps {
+interface LeftDrawerProps extends CustomComponentTypes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
 }
 
