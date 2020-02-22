@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CustomComponentType from '../../types/customComponent.type'
+import BuildTypes from '../../types/build.type'
 import FGrid from '../../components/Layouts/FGrid'
 import FormattedList from '../../components/List/FormattedList'
 import { useCustomComponentTypes, useCustomComponentList } from '../../hooks/customComponent.hook'
@@ -26,15 +27,29 @@ const formatComponentList = (
 }
 
 export interface CustomComponentListProps {
-    onSelect?: (componentUuid: CustomComponentType.CustomComponentBase) => void
+    includes?: BuildTypes.CustomComponentIncludes
+    onSelect: (componentUuid: CustomComponentType.CustomComponentBase) => void
 }
  
-const CustomComponentList: React.SFC<CustomComponentListProps> = (props) => {
-    const [type, setType] = useState('')
-    const customComponentTypes = useCustomComponentTypes()
-    const customComponentList = useCustomComponentList({ type })
-    const handleSelectType = (type: string) => setType(type)
-    const handleSelectComponent = props.onSelect
+const CustomComponentList: React.SFC<CustomComponentListProps> = ({
+    includes = {}, onSelect
+}) => {
+    const typeIncludes: CustomComponentType.CustomComponentType[] = Object.keys(includes) as Array<keyof typeof includes>
+    const [type, setType] = useState<CustomComponentType.CustomComponentType>()
+    const customComponentTypes = useCustomComponentTypes({ includes: typeIncludes })
+    const customComponentList = useCustomComponentList({ type, includes: type ? includes[type] : [] })
+    useEffect(() => {
+        if (customComponentTypes.length === 1) {
+            setType(customComponentTypes[0])
+        }
+    }, [customComponentTypes])
+    useEffect(() => {
+        if (customComponentList.length === 1) {
+            onSelect(customComponentList[0])
+        }
+    }, [customComponentList])
+    const handleSelectType = (type: CustomComponentType.CustomComponentType) => setType(type)
+    const handleSelectComponent = onSelect
     return (
         <FGrid container>
             <FGrid item xs={6}>

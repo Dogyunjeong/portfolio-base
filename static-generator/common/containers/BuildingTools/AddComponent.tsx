@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CustomComponentType from '../../types/customComponent.type'
+import BuildTypes from '../../types/build.type'
 import { useStyles } from '../../hooks/styles.hook'
 import DynamicComponent from '../Dynamic/DynamicComponent'
 
@@ -23,13 +24,11 @@ const baseStyle = {
     }
 }
 
-export interface AddComponentProps {
-    
-}
-
 // TODO: improve UI with hover button with + icon
-const AddComponent: React.SFC<AddComponentProps> = ({
-    children
+// TODO: What happens, if choose a customComponent container?, We need to show nested add component. somehow.
+const AddComponent: React.SFC<BuildTypes.AddComponentProps> = ({
+    children,
+    ...listProps
 }) => {
     const classes = useStyles(baseStyle)
     const [isAddingComponent, setAddingComponent] = useState(false)
@@ -38,13 +37,16 @@ const AddComponent: React.SFC<AddComponentProps> = ({
         event.stopPropagation()
         setAddingComponent(true)
     }
-    const handleSelectComponent = (componentData: CustomComponentType.CustomComponentBase) => setComponentData(componentData)
+    const handleSelectComponent = (componentData: CustomComponentType.CustomComponentBase) => {
+        setComponentData(componentData)
+        setAddingComponent(false)
+    }
     return (
         <div className={classes.addComponent} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
             <div className={classes.addingComponent}>
                 Test
                 {selectedComponentData
-                    ? <DynamicComponent componentData={selectedComponentData} />
+                    ? <DynamicComponent build componentData={selectedComponentData} />
                     : 'Component Area'}
             </div>
             <div>{children}</div>
@@ -52,11 +54,11 @@ const AddComponent: React.SFC<AddComponentProps> = ({
             {isAddingComponent && (
                 <div className={classes.dimBackground}>
                     {/* TODO: Create positioning wrapper. Need to position component list differently Depend on called component position */}
-                    <CustomComponentList onSelect={handleSelectComponent}/>
+                    <CustomComponentList onSelect={handleSelectComponent} {...listProps} />
                 </div>
             )}
         </div>
     )
 }
- 
+
 export default AddComponent;
