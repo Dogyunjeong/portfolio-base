@@ -81,6 +81,9 @@ All custom components must have building mode.
 1. Custom components are a set of building and displaying component.
   - in building mode, Custom component will receive set of Building tools which the platform provide. But this will not limiting custom components potential. Custom component can have its own building tools.
   - As it is set of two component. the concern is that expecting there are two components or one wrapping component which contains the two components. **Currently I decide to expect there is only one wrapping component.**  The reason is that. 1. This will allow us to receive a module as a component set. 2. Custom component will have full freedom for developing.
+2. Type
+  - type definition let user can modify one's configured component to another component.
+  - Custom component config is strongly relied on the custom component which the config belong to. The type can allow which custom component could be behave similar way so the config can be transformed.
 
 
 ### About types
