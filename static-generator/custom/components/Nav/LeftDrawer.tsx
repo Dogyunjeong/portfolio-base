@@ -49,9 +49,6 @@ const SideList: React.FC<SideListProps> = ({
             </ListItemText>
           </ListItem>
         ))}
-        {build && buildingTools?.AddComponent && <buildingTools.AddComponent includes={{
-          link: ['custom-link'],
-        }}/>}
       </List>
     </div>
   );
@@ -94,7 +91,7 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], op
         onClose={handleClose}
         onOpen={handleOpen}
       >
-        {navItems && (
+        {navItems && navItems.length && (
           <SideList
             onClose={handleClose}
             navItems={navItems}
