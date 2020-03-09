@@ -6,7 +6,7 @@ namespace CustomComponentTypes { // eslint-disable-line
         // container
         area = 'area', // TODO: area might be just layout
         layout = 'layout',
-        // component
+        // content component
         imageCollections = 'imageCollections',
         button = 'button',
         link = 'link',
@@ -21,7 +21,7 @@ namespace CustomComponentTypes { // eslint-disable-line
         [key: string]: any
     }
 
-    export interface CustomComponentBaseProps {
+    export interface CustomCompBuildingProps {
         // Building props. Building props will be exiting only when build prop is true
         // TODO: Building props may be need to be seperate and have another type like CustomBuildingComponentBase
         //      Currently, I postpone the decision.
@@ -29,8 +29,25 @@ namespace CustomComponentTypes { // eslint-disable-line
         buildingTools?: BuildTypes.BuildingTools
     }
 
-    export interface CustomComponentProps extends CustomComponentBaseProps {
+    // Todo: Deprecate
+    export interface CustomComponentBaseProps extends CustomCompBuildingProps {
         componentData?: CustomComponentBase
+    }
+
+
+    export interface NewCustomComponentBaseProps extends CustomCompBuildingProps, CustomComponentBase {
+    }
+    export interface CustomComponentProps extends CustomComponentBaseProps {
+        classes?: { [key: string]: string }
+        componentData?: CustomComponentBase
+    }
+
+    export interface LinkBase {
+        title: string
+        href: string
+    }
+
+    export interface LinkProps extends LinkBase, NewCustomComponentBaseProps {
     }
 
     export interface CustomComponentListItem {
@@ -40,6 +57,8 @@ namespace CustomComponentTypes { // eslint-disable-line
     }
 
     export type CustomComponentList = CustomComponentListItem[]
+
+    export type CustomStyles = object
 }
 
 export const initialCustomComponentData: CustomComponentTypes.CustomComponentBase = { uuid: '', name: '', type: CustomComponentTypes.CustomComponents.area }

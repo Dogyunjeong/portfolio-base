@@ -10,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import CustomComponentTypes from '../../types/customComponent.type'
 import CustomLayoutTypes from '../../types/customLayout.type'
-import CustomLink from '../../../custom/components/Link/CustomLink'
+import Link from '../../../components/Link'
 import Button from '../../../common/components/Button/Button'
 import { SelectItem } from '../Icons'
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-interface SideListProps extends CustomComponentTypes.CustomComponentProps {
+interface SideListProps extends CustomComponentTypes.CustomCompBuildingProps {
   onClose: () => void,
   navItems?: CustomLayoutTypes.NavItems,
 }
@@ -44,7 +44,7 @@ const SideList: React.FC<SideListProps> = ({
           <ListItem button key={navItem.to} >
             <ListItemIcon><SelectItem iconName={navItem.icon} /></ListItemIcon>
             <ListItemText>
-              <CustomLink href={navItem.to} title={navItem.label} />
+              <Link href={navItem.to} title={navItem.label} />
             </ListItemText>
           </ListItem>
         ))}
@@ -60,7 +60,7 @@ interface LeftDrawerProps extends CustomComponentTypes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
 }
 
-const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], build, buildingTools }) => {
+const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems, build, buildingTools, children }) => {
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
 
   const toggleDrawer = (
@@ -89,12 +89,15 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], build, buildingT
         onClose={handleClose}
         onOpen={handleOpen}
       >
-        <SideList
-          onClose={handleClose}
-          navItems={navItems}
-          build={build}
-          buildingTools={buildingTools}
-        />
+        {navItems && (
+          <SideList
+            onClose={handleClose}
+            navItems={navItems}
+            build={build}
+            buildingTools={buildingTools}
+          />
+        )}
+        {children}
       </SwipeableDrawer>
     </div>
   );

@@ -7,9 +7,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import CustomLayoutTypes from '../../../common/types/customLayout.type'
-import CustomLink from '../../../common/components/Link/CustomLink'
-import CustomButton from '../../../common/components/Button/CustomButton'
+import CustomComponentTypes from '../../../common/types/customComponent.type'
 import { SelectItem } from '../../../common/components/Icons'
+import Link from '../../../components/Link'
+import CustomButton from '../../../custom/components/Button/CustomButton'
 
 
 // TODO: this make styles should be wrapped
@@ -24,12 +25,14 @@ const useStyles = makeStyles({
   },
 });
 
-
-const SideList: React.FC<{
+interface SideListProps extends CustomComponentTypes.CustomCompBuildingProps {
   onClose: () => void,
-  navItems: CustomLayoutTypes.NavItems,
-}> = ({ onClose, navItems = [] }) => {
-  const classes = useStyles({});
+  navItems?: CustomLayoutTypes.NavItems,
+}
+const SideList: React.FC<SideListProps> = ({
+  onClose, navItems = [], build, buildingTools
+}) => {
+  const classes = useStyles();
   return (
     <div
       className={classes.list}
@@ -42,22 +45,26 @@ const SideList: React.FC<{
           <ListItem button key={navItem.to} >
             <ListItemIcon><SelectItem iconName={navItem.icon} /></ListItemIcon>
             <ListItemText>
-              <CustomLink href={navItem.to} title={navItem.label} />
+              <Link href={navItem.to} title={navItem.label} />
             </ListItemText>
           </ListItem>
         ))}
+        {build && buildingTools?.AddComponent && <buildingTools.AddComponent includes={{
+          link: ['custom-link'],
+        }}/>}
       </List>
     </div>
   );
 }
 
-export interface LeftDrawerProps {
+export interface LeftDrawerProps extends CustomComponentTypes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
   opened?: boolean
+  classes?: { drawer: string }
 }
 
 // TODO: all things provided by builder should be come from context API so any component can use it
-const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], opened = false }) => {
+const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], opened = false, build, buildingTools, children }) => {
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(opened);
 
   const toggleDrawer = (
@@ -82,14 +89,20 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ navItems = [], opened = false }
     <div>
       <CustomButton onClick={toggleDrawer}>Open Left</CustomButton>
       <SwipeableDrawer
+        className={classes.drawer}
         open={isOpenDrawer}
         onClose={handleClose}
         onOpen={handleOpen}
       >
-        <SideList
-          onClose={handleClose}
-          navItems={navItems}
-        />
+        {navItems && (
+          <SideList
+            onClose={handleClose}
+            navItems={navItems}
+            build={build}
+            buildingTools={buildingTools}
+          />
+        )}
+        {children}
       </SwipeableDrawer>
     </div>
   );

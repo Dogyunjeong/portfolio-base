@@ -13,15 +13,55 @@ export default {
         uuid: 'portfolio',
         header: {
           title: 'by Tati',
-          drawer: {
-            components: [
-              {
-                uuid: 'custom-link-button',
-                type: 'button',
-                label: 'by Tati',
-                to: '/',
+          drawer: [
+            {
+              uuid: 'link-svg',
+              type: 'link',
+              title: 'home',
+              href: '/',
+              svgSrc: '/assets/svg/nav_item_01.svg',
+              hoverTitle: 'HOME'
+            },
+            {
+              uuid: 'link-svg',
+              type: 'link',
+              title: 'archive',
+              href: '/',
+              svgSrc: '/assets/svg/nav_item_02.svg',
+              hoverTitle: 'ARCHIVE'
+            },
+            {
+              uuid: 'link-svg',
+              type: 'link',
+              title: 'shop',
+              href: '/',
+              svgSrc: '/assets/svg/nav_item_03.svg',
+              hoverTitle: 'SHOP'
+            },
+            {
+              uuid: 'link-svg',
+              type: 'link',
+              title: 'info',
+              href: '/',
+              svgSrc: '/assets/svg/nav_item_04.svg',
+              hoverTitle: 'INFO'
+            },
+          ],
+          drawerStyle: {
+            drawer: {
+              width: '500px',
+              height: '100%',
+              '& $navItem': {
+                width: '100%',
+                height: 70,
+                margin: '30px 0',
+                display: 'flex',
+                alignContent: 'center',
+                justifyContent: 'center',
+                fontSize: '4rem',
               }
-            ]
+            },
+            navItem: {}
           },
           // remove nav items.
           navItems: [

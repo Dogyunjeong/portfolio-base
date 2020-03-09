@@ -11,6 +11,8 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
   export interface Header {
     title?: string
     navItems?: NavItems
+    drawer?: CustomComponentTypes.LinkProps[]
+    drawerStyle?: object
   }
 
   export interface Footer {

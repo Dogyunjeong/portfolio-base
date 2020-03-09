@@ -6,12 +6,12 @@ export interface WrappedLinkProps {
   title: string
 }
 
-const WrappedLink: React.FC<WrappedLinkProps> = ({ href, title }) => {
+const WrappedLink: React.FC<WrappedLinkProps> = ({ href, title, children }) => {
   return (
     <Link
       href={href}
     >
-      <a>{title}</a>
+      {children ? children : (<a>{title}</a>)}
     </Link>
   );
 }

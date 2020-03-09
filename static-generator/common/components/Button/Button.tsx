@@ -1,6 +1,6 @@
 import React from 'react'
 import MButton from '@material-ui/core/Button';
-export interface ButtonProps {
+export interface ButtonProps extends React.DOMAttributes<Element> {
   className?: string
   disabled?: boolean
   disableElevation?: boolean
