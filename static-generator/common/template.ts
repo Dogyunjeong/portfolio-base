@@ -15,12 +15,20 @@ export default {
           title: 'by Tati',
           drawer: [
             {
+              uuid: 'area-image',
+              type: 'area',
+              alt: 'logo',
+              src: '/assets/svg/logo.svg',
+              class: 'logo'
+            },
+            {
               uuid: 'link-svg',
               type: 'link',
               title: 'home',
               href: '/',
               svgSrc: '/assets/svg/nav_item_01.svg',
-              hoverTitle: 'HOME'
+              hoverTitle: 'HOME',
+              class: 'navItem'
             },
             {
               uuid: 'link-svg',
@@ -28,7 +36,8 @@ export default {
               title: 'archive',
               href: '/',
               svgSrc: '/assets/svg/nav_item_02.svg',
-              hoverTitle: 'ARCHIVE'
+              hoverTitle: 'ARCHIVE',
+              class: 'navItem'
             },
             {
               uuid: 'link-svg',
@@ -36,7 +45,8 @@ export default {
               title: 'shop',
               href: '/',
               svgSrc: '/assets/svg/nav_item_03.svg',
-              hoverTitle: 'SHOP'
+              hoverTitle: 'SHOP',
+              class: 'navItem'
             },
             {
               uuid: 'link-svg',
@@ -44,13 +54,17 @@ export default {
               title: 'info',
               href: '/',
               svgSrc: '/assets/svg/nav_item_04.svg',
-              hoverTitle: 'INFO'
+              hoverTitle: 'INFO',
+              class: 'navItem'
             },
           ],
-          drawerStyle: {
+          customStyles: {
             drawer: {
               width: '500px',
               height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
               '& $navItem': {
                 width: '100%',
                 height: 70,
@@ -61,21 +75,9 @@ export default {
                 fontSize: '4rem',
               }
             },
-            navItem: {}
+            navItem: {},
+            logo: {},
           },
-          // remove nav items.
-          navItems: [
-            {
-              icon: 'Info',
-              label: 'by Tati',
-              to: '/'
-            },
-            {
-              icon: 'Collections',
-              label: 'Univ Final collection',
-              to: '/univ-final-collection'
-            },
-          ]
         },
       },
       components: [],

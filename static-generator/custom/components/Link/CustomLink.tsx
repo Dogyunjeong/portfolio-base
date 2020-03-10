@@ -1,30 +1,22 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
 import { Link } from "../../../components/Link";
 import CustomComponentTypes from "../../../common/types/customComponent.type";
+import { useStyles } from '../../../common/hooks/styles.hook'
 
-export interface CustomLinkStyleProps {
-  custom: object;
-}
 export interface CustomLinkProps extends CustomComponentTypes.LinkProps {
   customStyles?: CustomComponentTypes.CustomStyles;
 }
-
-const useStyles = makeStyles({
-    custom: (props: CustomLinkStyleProps) => ({ ...props.custom })
-});
-
 const CustomLink: React.SFC<CustomLinkProps> = ({
   customStyles = {},
   title,
   href,
   ...others
 }) => {
-  const classes = useStyles({ custom: customStyles });
+  const classes = useStyles(customStyles);
   return (
     <Link
-      className={classes.custom}
+      className={classes.root}
       title={title}
       href={href}
       {...others}

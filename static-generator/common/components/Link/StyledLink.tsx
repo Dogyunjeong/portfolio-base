@@ -5,7 +5,7 @@ import { Link } from "../../../components/Link";
 import CustomComponentTypes from "../../../common/types/customComponent.type";
 
 export interface CustomLinkProps extends CustomComponentTypes.LinkBase, React.DOMAttributes<Element> {
-  classes?: { wrapper: string };
+  classes?: { root: string };
   customStyles?: object;
 
 }
@@ -25,7 +25,7 @@ const CustomLink: React.SFC<CustomLinkProps> = ({
   const customClasses = useStyles({ custom: customStyles });
   return (
     <Link
-      className={[customClasses.custom, classes.wrapper].join(' ')}
+      className={[customClasses.custom, classes.root].join(' ')}
       title={title}
       href={href}
       {...others}

@@ -18,6 +18,7 @@ namespace CustomComponentTypes { // eslint-disable-line
         type: CustomComponentType
         name: string
         components?: CustomComponentBase[]
+        customStyles?: CustomStyles
         [key: string]: any
     }
 
@@ -28,18 +29,19 @@ namespace CustomComponentTypes { // eslint-disable-line
         build?: boolean
         buildingTools?: BuildTypes.BuildingTools
     }
+    export type CustomStyles = { root: object, [key:string]: object }
 
     // Todo: Deprecate
     export interface CustomComponentBaseProps extends CustomCompBuildingProps {
+        classes?: { root: string, [key: string]: string }
         componentData?: CustomComponentBase
+        customStyles?: CustomStyles
     }
 
 
     export interface NewCustomComponentBaseProps extends CustomCompBuildingProps, CustomComponentBase {
     }
     export interface CustomComponentProps extends CustomComponentBaseProps {
-        classes?: { [key: string]: string }
-        componentData?: CustomComponentBase
     }
 
     export interface LinkBase {
@@ -58,7 +60,6 @@ namespace CustomComponentTypes { // eslint-disable-line
 
     export type CustomComponentList = CustomComponentListItem[]
 
-    export type CustomStyles = object
 }
 
 export const initialCustomComponentData: CustomComponentTypes.CustomComponentBase = { uuid: '', name: '', type: CustomComponentTypes.CustomComponents.area }

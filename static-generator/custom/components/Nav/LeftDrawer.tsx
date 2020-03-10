@@ -57,7 +57,7 @@ const SideList: React.FC<SideListProps> = ({
 export interface LeftDrawerProps extends CustomComponentTypes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
   opened?: boolean
-  classes?: { drawer: string }
+  classes?: { root: string, drawer: string }
 }
 
 // TODO: all things provided by builder should be come from context API so any component can use it
@@ -91,7 +91,7 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], op
         onClose={handleClose}
         onOpen={handleOpen}
       >
-        {navItems && navItems.length && (
+        {navItems && navItems.length !== 0 && (
           <SideList
             onClose={handleClose}
             navItems={navItems}

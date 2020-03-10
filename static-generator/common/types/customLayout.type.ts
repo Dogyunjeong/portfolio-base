@@ -12,7 +12,7 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
     title?: string
     navItems?: NavItems
     drawer?: CustomComponentTypes.LinkProps[]
-    drawerStyle?: object
+    customStyles?: object
   }
 
   export interface Footer {
