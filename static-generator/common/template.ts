@@ -1,3 +1,5 @@
+const midMax = '@media (max-width: 968px)'
+
 export default {
   version: 0.1,
   uuid: 'test-static-web-prototype',
@@ -34,7 +36,7 @@ export default {
               uuid: 'link-svg',
               type: 'link',
               title: 'archive',
-              href: '/',
+              href: '/archive',
               svgSrc: '/assets/svg/nav_item_02.svg',
               hoverTitle: 'ARCHIVE',
               class: 'navItem'
@@ -60,15 +62,17 @@ export default {
           ],
           customStyles: {
             drawer: {
-              width: '500px',
+              width: '40rem',
+              maxWidth: '80vw',
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               '& $navItem': {
                 width: '100%',
-                height: 70,
-                margin: '30px 0',
+                height: '6rem',
+                maxHeight: '8vh',
+                margin: '1rem 0',
                 display: 'flex',
                 alignContent: 'center',
                 justifyContent: 'center',
@@ -77,30 +81,112 @@ export default {
             },
             navItem: {},
             logo: {},
+            [midMax]: {
+              drawer: {
+                '& $navItem': {
+                }
+              }
+            }
           },
         },
       },
       components: [],
       pages: [
         {
-          path: 'univ-final-collection',
-          uuid: 'test-page-univ-final-collection',
+          path: 'archive',
+          uuid: 'tati-archive',
           components: [{
             uuid: 'portfolio-collection',
             type: 'image-collection',
+            customStyles: {
+              imageWrapper: {
+                '& $image': {
+                  maxWidth: '100%',
+                  maxHeight: '100vh',
+                },
+                '& $image:not(:first-child)': {
+                  marginTop: '2rem',
+                }
+              },
+              image: {}
+            },
             images: [
               {
                 label: '',
-                src: 'https://images.squarespace-cdn.com/content/v1/56b22cccb654f9062f18767b/1571413179902-TXCFVNVYE79WZ8MR9JI1/ke17ZwdGBToddI8pDm48kEd_cItpmLGocRCmcMGkfqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbPY7rrsO3luW_2oD5O7OD_ppKOTqLbA7PoNaCY-xWmcXejQve6EWhtsEXNp5cp4uw/MATTYBOVAN104_190913_SS20_054.jpg?format=500w',
+                src:'/assets/portfolio/PORTFOLIO_Seite_01.jpg',
               },
               {
                 label: '',
-                src: 'https://images.squarespace-cdn.com/content/v1/56b22cccb654f9062f18767b/1571413213417-DDJ9KZ8OS6DHSRM22KT1/ke17ZwdGBToddI8pDm48kK-RtfHK4dWKFZGMAsenhqB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UWhaXEnukYEx-nYknHlYwB6oqZfXYfpHU3va4HWtPXy2qbQn8vVQ_opmIaE21ql8RQ/MATTYBOVAN104_190913_SS20_087.jpg?format=500w'
+                src:'/assets/portfolio/PORTFOLIO_Seite_02.jpg',
               },
               {
                 label: '',
-                src: 'https://images.squarespace-cdn.com/content/v1/56b22cccb654f9062f18767b/1571413321842-IBO59H8FSE0SFVYKSV08/ke17ZwdGBToddI8pDm48kEkxBFVuQYJC27otB6i4TMh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iy8Rj2bPXFyaluz0PeKicP7GUiYVgYm7egqlwkMJrmcHudgNH_AjpGmBM9uiUXRqg/MATTYBOVAN104_190913_SS20_205.jpg?format=500w'
-              }
+                src:'/assets/portfolio/PORTFOLIO_Seite_03.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_04.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_05.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_06.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_07.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_08.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_09.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_10.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_11.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_12.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_13.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_14.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_16.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_17.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_18.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_19.jpg',
+              },
+              {
+                label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_20.jpg',
+              },
             ]
           }],
           pages: []

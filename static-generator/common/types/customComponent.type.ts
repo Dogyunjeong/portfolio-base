@@ -12,6 +12,9 @@ namespace CustomComponentTypes { // eslint-disable-line
         link = 'link',
     }
     export type CustomComponentType = keyof typeof CustomComponents
+
+    export type CustomStyles = { root: object, [key:string]: object }
+
     export interface CustomComponentBase {
         // TODO: Need Uuid for Component, this uuid should be for customComponent template Data itself
         uuid: string
@@ -29,7 +32,6 @@ namespace CustomComponentTypes { // eslint-disable-line
         build?: boolean
         buildingTools?: BuildTypes.BuildingTools
     }
-    export type CustomStyles = { root: object, [key:string]: object }
 
     // Todo: Deprecate
     export interface CustomComponentBaseProps extends CustomCompBuildingProps {

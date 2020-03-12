@@ -34,16 +34,20 @@ export default class TemplateService {
     return pageContent.pages.find((page) => page.path === pagePath)
   }
 
-  private _getPageContent (pageConfig: TemplateTypes.PageConfig): TemplateTypes.PageContent {
+  private _getPageInfo (pageConfig: TemplateTypes.PageConfig)
+  : { pageContent: TemplateTypes.PageContent, layout: CustomLayoutTypes.Layout } {
     let pageContent: TemplateTypes.PageContent = this._data.pages[0]
-    
+    let layout: CustomLayoutTypes.Layout  = pageContent.layout as CustomLayoutTypes.Layout
     TemplateService.pageConfigProperty.forEach((property: TemplateTypes.PageConfigProperty) => {
       if (pageConfig[property]) {
         const content = this._findPageContent(pageContent, pageConfig[property])
         pageContent = content || pageContent
+        if (pageContent.layout) {
+          layout = pageContent.layout
+        }
       }
     })
-    return pageContent
+    return { pageContent, layout }
   }
 
   private async _baseFooter (): Promise<CustomLayoutTypes.Footer> {
@@ -97,13 +101,10 @@ export default class TemplateService {
     pageConfig: TemplateTypes.PageConfig = {}
   ): Promise<TemplateTypes.PageDetail> {
     const instance = await TemplateService.getInstance()
-    const pageContent: TemplateTypes.PageContent = instance._getPageContent(pageConfig)
+    const { pageContent, layout }: { pageContent: TemplateTypes.PageContent, layout: CustomLayoutTypes.Layout } = instance._getPageInfo(pageConfig)
     const components: CustomComponentTypes.CustomComponentBase[] = pageContent.components
     const baseFooter: CustomLayoutTypes.Footer = await instance._baseFooter()
-    let layout: CustomLayoutTypes.Layout = instance.data.layout
-    if (pageContent.layout) {
-      layout = pageContent.layout
-    }
+
     return {
       path: TemplateService.pageConfigToUrl(pageConfig),
       components,
@@ -117,7 +118,7 @@ export default class TemplateService {
   public static async addPage(baseUrl: string, path: string): Promise<void> {
     const pageConfig: TemplateTypes.PageConfig = TemplateService.urlToPageConfig(baseUrl)
     const instance = await TemplateService.getInstance()
-    const pageContent: TemplateTypes.PageContent = instance._getPageContent(pageConfig)
+    const { pageContent }: { pageContent: TemplateTypes.PageContent } = instance._getPageInfo(pageConfig)
     if (pageContent.pages && instance._findPageContent(pageContent, path)) {
       throw new ExpectedError(t('error.duplicate_path'))
     }

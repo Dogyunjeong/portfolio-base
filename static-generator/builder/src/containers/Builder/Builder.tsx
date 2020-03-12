@@ -13,16 +13,25 @@ const Builder: React.FC<BuilderProps> = () => {
   const pageConfig: TemplateTypes.PageConfig = usePageConfig()
   return (
     <FGrid container>
-      <FGrid item xs={8}>
+      <FGrid item xs={12}>
         <GeneratorHolder
           pageConfig={pageConfig}
         />
       </FGrid>
-      <FGrid item xs={4}>
-        <PageBuilder />
-      </FGrid>
     </FGrid>
   )
+  // return (
+  //   <FGrid container>
+  //     <FGrid item xs={8}>
+  //       <GeneratorHolder
+  //         pageConfig={pageConfig}
+  //       />
+  //     </FGrid>
+  //     <FGrid item xs={4}>
+  //       <PageBuilder />
+  //     </FGrid>
+  //   </FGrid>
+  // )
 }
 
 export default Builder;
