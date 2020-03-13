@@ -5,7 +5,10 @@ import CustomComponentTypes from '../../types/customComponent.type'
 import Loading from '../../components/Loading'
 import * as Portfolio from '../../../custom/components/Portfolio'
 import SvgLink from '../../../custom/components/Link/SvgLink'
-import Image from '../../../custom/components/Area/Image'
+import Wrapper from '../../../custom/components/Area/Wrapper'
+import Image from '../../../custom/components/Content/Image'
+import Paragraph from '../../../custom/components/Content/Paragraph'
+import TatiHome from '../../../custom/components/Deprecate/TatiHome'
 
 export interface DynamicComponentProps extends CustomComponentTypes.CustomComponentProps {
 }
@@ -16,7 +19,10 @@ const DynamicComponent: React.FC<DynamicComponentProps> = (props: any) => {
   switch (props.componentData.uuid) {
     case 'portfolio-collection': return <Portfolio.Collections {...props} />
     case 'link-svg': return <SvgLink {...props} />
-    case 'area-image': return <Image {...props} />
+    case 'area-wrapper': return <Wrapper {...props} />
+    case 'content-image': return <Image {...props} />
+    case 'content-paragraph': return <Paragraph {...props} />
+    case 'deprecate-tati-home': return <TatiHome {...props} />
     default: return <Loading />
   }
 }

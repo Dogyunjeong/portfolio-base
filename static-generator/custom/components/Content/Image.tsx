@@ -14,10 +14,14 @@ export interface ImageProps extends CustomComponentTypes.CustomComponentBaseProp
 }
 
 const Image: React.SFC<ImageProps> = ({ classes = {}, componentData }) => {
+  console.log('classes: ', classes);
   const { src, alt, customStyles } = componentData
   const customClasses = useStyles(customStyles)
+  console.log('customClasses: ', customClasses);
   return (
-    <img className={[classes.root, customClasses.root].join(' ')} src={setSrc(src)} alt={alt} />
+    <div className={[classes.root, customClasses.img].join(' ')}>
+      <img src={setSrc(src)} alt={alt} />
+    </div>
   )
 }
 

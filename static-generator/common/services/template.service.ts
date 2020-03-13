@@ -18,9 +18,10 @@ export default class TemplateService {
     this._data = template
   }
   static async getInstance () {
-    if (!TemplateService.instance) {
-      TemplateService.instance = new TemplateService(template)
-    }
+    TemplateService.instance = new TemplateService(template)
+    // if (!TemplateService.instance) {
+    //   TemplateService.instance = new TemplateService(template)
+    // }
     return TemplateService.instance
   }
 

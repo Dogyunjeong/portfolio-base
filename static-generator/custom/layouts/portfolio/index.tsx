@@ -6,7 +6,6 @@ import LeftDrawer from '../../components/Nav/LeftDrawer'
 import DynamicComponent from '../../../common/containers/Dynamic/DynamicComponent'
 import _ from '../../../common/utilities/lodash.util';
 import { useStyles } from '../../../common/hooks/styles.hook';
-import Image from '../../components/Area/Image'
 
 interface PortfolioProps extends CustomLayoutTypes.LayoutProps {
 }
@@ -24,7 +23,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buil
             <div className={classes.drawer}>
               {_.map(layoutData.header.drawer, (drawer, idx) => (
                 <DynamicComponent
-                  classes={{ root: classes[drawer.class] }}
+                  classes={{ root: classes[drawer.class], child: classes[drawer.childClass] }}
                   key={`header-drawer-item-${idx}`}
                   componentData={drawer}
                 />

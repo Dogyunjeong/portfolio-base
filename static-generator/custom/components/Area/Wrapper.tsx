@@ -10,13 +10,14 @@ export interface WrapperProps extends CustomComponentTypes.CustomComponentBasePr
 }
 
 // TODO: remove as any after restructure component baseProps type
-const Wrapper: React.SFC<WrapperProps> = ({ classes = {} as any, componentData = {} as any }) => {
-  const customClasses = useStyles(componentData.customStyles || {})
+const Wrapper: React.SFC<WrapperProps> = ({ classes = {} as any, componentData = {} as any, children }) => {
+  const customClasses = useStyles({ root: componentData.customStyles } || {})
   return (
     <div className={[classes.root, customClasses.root].join(' ')}>
-      {_.map(componentData.components, (component) => (
+      {_.map(componentData.components, (component, idx) => (
         <DynamicComponent
-          key={`component`}
+          classes={{ root: classes.child }}
+          key={`component-wrapper-child-${idx}`}
           componentData={component}
         />
       ))}

@@ -17,47 +17,64 @@ export default {
           title: 'by Tati',
           drawer: [
             {
-              uuid: 'area-image',
-              type: 'area',
+              uuid: 'content-image',
+              type: 'content',
               alt: 'logo',
               src: '/assets/svg/logo.svg',
               class: 'logo'
             },
             {
-              uuid: 'link-svg',
-              type: 'link',
-              title: 'home',
-              href: '/',
-              svgSrc: '/assets/svg/nav_item_01.svg',
-              hoverTitle: 'HOME',
-              class: 'navItem'
-            },
-            {
-              uuid: 'link-svg',
-              type: 'link',
-              title: 'archive',
-              href: '/archive',
-              svgSrc: '/assets/svg/nav_item_02.svg',
-              hoverTitle: 'ARCHIVE',
-              class: 'navItem'
-            },
-            {
-              uuid: 'link-svg',
-              type: 'link',
-              title: 'shop',
-              href: '/',
-              svgSrc: '/assets/svg/nav_item_03.svg',
-              hoverTitle: 'SHOP',
-              class: 'navItem'
-            },
-            {
-              uuid: 'link-svg',
-              type: 'link',
-              title: 'info',
-              href: '/',
-              svgSrc: '/assets/svg/nav_item_04.svg',
-              hoverTitle: 'INFO',
-              class: 'navItem'
+              uuid: 'area-wrapper',
+              type: 'area',
+              class: 'navWrapper',
+              childClass: 'navItem',
+              display: 'flex',
+              customStyles: {
+                img: {
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  backgroundPosition: 'center',
+                  backgroundImage: 'url(/assets/svg/nav_background.svg)',
+                  backgroundRepeat: 'no-repeat',
+                  padding: '3vh 0',
+                  marginTop: '10vh',
+                }
+              },
+              components: [
+                {
+                  uuid: 'link-svg',
+                  type: 'link',
+                  title: 'home',
+                  href: '/',
+                  svgSrc: '/assets/svg/nav_item_01.svg',
+                  hoverTitle: 'HOME',
+                },
+                {
+                  uuid: 'link-svg',
+                  type: 'link',
+                  title: 'archive',
+                  href: '/archive',
+                  svgSrc: '/assets/svg/nav_item_02.svg',
+                  hoverTitle: 'ARCHIVE',
+                },
+                {
+                  uuid: 'link-svg',
+                  type: 'link',
+                  title: 'shop',
+                  href: '/',
+                  svgSrc: '/assets/svg/nav_item_03.svg',
+                  hoverTitle: 'SHOP',
+                },
+                {
+                  uuid: 'link-svg',
+                  type: 'link',
+                  title: 'info',
+                  href: '/',
+                  svgSrc: '/assets/svg/nav_item_04.svg',
+                  hoverTitle: 'INFO',
+                },
+
+              ]
             },
           ],
           customStyles: {
@@ -68,6 +85,10 @@ export default {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
+              '& logo': {
+                height: '13vh',
+                maxHeight: '13vh'
+              },
               '& $navItem': {
                 width: '100%',
                 height: '6rem',
@@ -76,7 +97,7 @@ export default {
                 display: 'flex',
                 alignContent: 'center',
                 justifyContent: 'center',
-                fontSize: '4rem',
+                fontSize: '8vh',
               }
             },
             navItem: {},
@@ -90,7 +111,12 @@ export default {
           },
         },
       },
-      components: [],
+      components: [
+        {
+          uuid: 'deprecate-tati-home',
+          type: 'test',
+        },
+      ],
       pages: [
         {
           path: 'archive',
