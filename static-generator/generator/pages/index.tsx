@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import DynamicLayout from '../generator-layouts/DynamicLayout'
+import DynamicLayout from '../common/containers/Dynamic/DynamicLayout'
 import TemplateService from '../services/template.service'
-import CustomLayoutTypes, { initialLayoutData } from '../types/customLayout.type'
+import CustomLayoutTypes, { initialLayoutData } from '../common/types/customLayout.type'
 import { Layers } from '@material-ui/icons'
 
 const Home = () => {
