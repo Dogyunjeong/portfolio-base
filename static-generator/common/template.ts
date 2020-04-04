@@ -30,11 +30,11 @@ export default {
               childClass: 'navItem',
               display: 'flex',
               customStyles: {
-                img: {
+                root: {
                   flexDirection: 'column',
                   justifyContent: 'center',
                   backgroundPosition: 'center',
-                  backgroundImage: 'url(/assets/svg/nav_background.svg)',
+                  backgroundImage: 'url("/assets/svg/nav_background.svg")',
                   backgroundRepeat: 'no-repeat',
                   padding: '3vh 0',
                   marginTop: '10vh',
@@ -98,6 +98,8 @@ export default {
                 alignContent: 'center',
                 justifyContent: 'center',
                 fontSize: '8vh',
+                color: 'black',
+                textDecoration: 'none',
               }
             },
             navItem: {},

@@ -1,3 +1,4 @@
+import { STATIC_PATH } from './../../staticConfig';
 import { setSrc } from './../utilities/common.util';
 import { makeStyles as MMakeStyles } from "@material-ui/core/styles";
 import _ from "../utilities/lodash.util";
@@ -14,12 +15,18 @@ const generateStylesWithStatic = (styleToMake?: {[key:string]: any}) => {
       return
     }
     if (key === 'backgroundImage' || key === 'background-image') {
-      const url = _.get(/url\((.*)\)/gi.exec(value), '[1]', value)
-      result[key] = `url(${setSrc(url)})`
+      const match = /url\(\"(.*)\"\)/gi.exec(value)
+      console.log('match: ', match);
+      const url = _.get(match, '[1]', value)
+      console.log('url: ', url);
+      // result[key] = STATIC_PATH[url]
+      result[key] = `url("${setSrc(url)}")`
+      console.log('result[key]: ', result[key]);
       return
     }
     result[key] = value
   });
+  console.log('result: ', result);
   return result
 };
 

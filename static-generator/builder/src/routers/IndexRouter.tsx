@@ -12,7 +12,7 @@ export interface IndexRouterProps {}
 const IndexRouter: React.FC<IndexRouterProps> = () => {
   return (
     <Switch>
-      <Route path={BUILDER_BASE || '/base'} component={BuildRouter}/>
+      <Route path={BUILDER_BASE} component={BuildRouter}/>
     </Switch>
   );
 }

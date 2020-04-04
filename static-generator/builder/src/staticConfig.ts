@@ -30,3 +30,7 @@ export const IMPORT_PATH: {[key: string]: string} = {
   ['/assets/svg/nav_background.svg']: require('./assets/svg/nav_background.svg'),
   ...IMPORT_PORTFOLIO_PATH,
 }
+
+export const STATIC_PATH: {[key: string]: string} = {
+  ['/assets/svg/nav_background.svg']: `url("/assets/svg/nav_background.svg")`,
+}

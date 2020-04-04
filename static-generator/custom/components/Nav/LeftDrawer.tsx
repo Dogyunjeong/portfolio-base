@@ -8,22 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import CustomLayoutTypes from '../../../common/types/customLayout.type'
 import CustomComponentTypes from '../../../common/types/customComponent.type'
+import { Menu } from '../../../common/components/Icons/index'
 import { SelectItem } from '../../../common/components/Icons'
+import { useStyles } from '../../../common/hooks/styles.hook'
 import Link from '../../../components/Link'
-import CustomButton from '../../../custom/components/Button/CustomButton'
-
-
-// TODO: this make styles should be wrapped
-//   something like custom hooks
-// TODO: need to find way how to update each components styles and update on template.ts
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
 
 interface SideListProps extends CustomComponentTypes.CustomCompBuildingProps {
   onClose: () => void,
@@ -32,7 +20,14 @@ interface SideListProps extends CustomComponentTypes.CustomCompBuildingProps {
 const SideList: React.FC<SideListProps> = ({
   onClose, navItems = [], build, buildingTools
 }) => {
-  const classes = useStyles();
+  const classes = useStyles({
+    list: {
+      width: 250,
+    },
+    fullList: {
+      width: 'auto',
+    },
+  });
   return (
     <div
       className={classes.list}
@@ -57,12 +52,12 @@ const SideList: React.FC<SideListProps> = ({
 export interface LeftDrawerProps extends CustomComponentTypes.CustomComponentProps {
   navItems?: CustomLayoutTypes.NavItems
   opened?: boolean
-  classes?: { root: string, drawer: string }
+  classes?: { root?: string, drawer?: string }
 }
 
 // TODO: all things provided by builder should be come from context API so any component can use it
 const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], opened = false, build, buildingTools, children }) => {
-  const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(opened);
+  const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
 
   const toggleDrawer = (
     event: React.KeyboardEvent | React.MouseEvent,
@@ -82,12 +77,29 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], op
   const handleOpen = () => setIsOpenDrawer(true)
   const handleClose = () => setIsOpenDrawer(false)
 
+  const customClasses = useStyles({
+    menuWrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      top: '2vh',
+      left: '3vw',
+      width: '3rem',
+      height: '3rem',
+      borderRadius: '1.5rem',
+      backgroundColor: 'rgba(255, 255, 255, 0.3)'
+    }
+  })
+
   return (
     <div>
-      <CustomButton onClick={toggleDrawer}>Open Left</CustomButton>
+      <div className={customClasses.menuWrapper}>
+        <Menu fontSize="large" onClick={toggleDrawer} />
+      </div>
       <SwipeableDrawer
         className={classes.drawer}
-        open={isOpenDrawer}
+        open={isOpenDrawer || opened}
         onClose={handleClose}
         onOpen={handleOpen}
       >
@@ -99,7 +111,9 @@ const LeftDrawer: React.FC<LeftDrawerProps> = ({ classes = {}, navItems = [], op
             buildingTools={buildingTools}
           />
         )}
-        {children}
+        <div onClick={handleClose}>
+          {children}
+        </div>
       </SwipeableDrawer>
     </div>
   );

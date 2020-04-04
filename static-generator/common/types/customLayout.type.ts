@@ -29,8 +29,9 @@ declare namespace CustomLayoutTypes { // eslint-disable-line
   export interface HeaderProps extends CustomComponentTypes.CustomComponentProps {
     headerData: Header
     children?: React.ReactElement
-    left?: React.ReactElement,
-    right?: React.ReactElement,
+    left?: React.ReactElement
+    right?: React.ReactElement
+    fixedNav?: boolean
   }
 
   export interface FooterProps extends CustomComponentTypes.CustomComponentProps {

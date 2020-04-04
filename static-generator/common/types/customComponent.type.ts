@@ -35,7 +35,7 @@ namespace CustomComponentTypes { // eslint-disable-line
 
     // Todo: Deprecate
     export interface CustomComponentBaseProps extends CustomCompBuildingProps {
-        classes?: { root: string, [key: string]: string }
+        classes?: { root?: string, [key: string]: any }
         componentData?: CustomComponentBase
         customStyles?: CustomStyles
     }

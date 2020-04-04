@@ -12,7 +12,6 @@ const App: React.FC = () => {
     <div className="App">
       <main>
         <Router>
-          <Link to="/build" >Build Test</Link>
           <IndexRouter />
         </Router>
       </main>

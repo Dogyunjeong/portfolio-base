@@ -1,1 +1,1 @@
-export const BUILDER_BASE = '/build'
+export const BUILDER_BASE = ''

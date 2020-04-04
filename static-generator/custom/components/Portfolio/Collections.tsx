@@ -8,11 +8,16 @@ import { FGrid } from "../../../common/components/Layouts";
 const PortfolioCollections: React.FC<PortfolioTypes.PortfolioCollectionsProps> = ({
   componentData
 }) => {
-  const { images, customStyles } = componentData;
-  const classes = useStyles(customStyles);
+  const { images, customStyles = { imageWrapper: {}} } = componentData;
+  const classes = useStyles({
+    ...customStyles,
+    imageWrapper: {
+      ...customStyles.imageWrapper,
+      justifyContent: 'center',
+    }
+  });
   return (
     <FGrid container className={classes.imageWrapper}>
-      testImageholder
       {images.map((img, idx) => (
         <img
           className={classes.image}
