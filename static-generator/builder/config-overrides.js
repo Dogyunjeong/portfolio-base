@@ -1,5 +1,4 @@
-
-const path = require('path');
+const path = require("path")
 
 module.exports = (config, env) => {
   const babelMatch = /\.(js|mjs|jsx|ts|tsx)$/
@@ -19,13 +18,13 @@ module.exports = (config, env) => {
     })
   })
   babelLoader.options.presets.push([
-    '@babel/preset-typescript',
+    "@babel/preset-typescript",
     {
-      allowNamespaces: true
-    }
+      allowNamespaces: true,
+    },
   ])
   if (babelLoader.options.presets.length !== 2) {
-    throw new Error('Failed to add preset')
+    throw new Error("Failed to add preset")
   }
 
   // babelLoader.test = /\.(js|mjs|jsx)$/
@@ -40,6 +39,8 @@ module.exports = (config, env) => {
   // config.module.rules[oneOfIdx].oneOf.push(tsLoader)
   // loggingTest(config.module.rules[oneOfIdx].oneOf)
   return {
-    ...config, resolve: { ...config.resolve, symlinks: false }
+    ...config,
+    resolve: { ...config.resolve, symlinks: false },
+    watch: true,
   }
-};
+}

@@ -28,7 +28,7 @@ const DynamicPageBuilder: React.FC<DynamicPageBuilderProps> = (props) => {
         buildingTools={BuildingTools}
         layoutData={pageDetail.layout}
     >
-      {pageDetail.components.map((data: CustomComponentTypes.CustomComponentBase, idx: number) => 
+      {pageDetail.components?.map((data: CustomComponentTypes.CustomComponentBase, idx: number) => 
         <DynamicComponentBuilder
           key={`${pageDetail.path}-component-${idx}`}
           // build

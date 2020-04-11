@@ -13,12 +13,16 @@ const IMPORT_PORTFOLIO_PATH: {[key: string]: string} = {
   ['/assets/portfolio/PORTFOLIO_Seite_12.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_12.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_13.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_13.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_14.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_14.jpg'),
+  ['/assets/portfolio/PORTFOLIO_Seite_15.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_15.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_16.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_16.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_17.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_17.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_18.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_18.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_19.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_19.jpg'),
   ['/assets/portfolio/PORTFOLIO_Seite_20.jpg']: require('./assets/portfolio/PORTFOLIO_Seite_20.jpg'),
+}
 
+const IMPORT_PUBLIC_ASSETS_PATH: {[key: string]: string} = {
+  ['assets/fonts/Helvetica.ttf']: require('./assets/fonts/Helvetica.ttf'),
 }
 
 export const IMPORT_PATH: {[key: string]: string} = {
@@ -29,6 +33,7 @@ export const IMPORT_PATH: {[key: string]: string} = {
   ['/assets/svg/nav_item_04.svg']: require('./assets/svg/nav_item_04.svg'),
   ['/assets/svg/nav_background.svg']: require('./assets/svg/nav_background.svg'),
   ...IMPORT_PORTFOLIO_PATH,
+  ...IMPORT_PUBLIC_ASSETS_PATH,
 }
 
 export const STATIC_PATH: {[key: string]: string} = {

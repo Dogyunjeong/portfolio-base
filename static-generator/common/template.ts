@@ -35,6 +35,7 @@ export default {
                   justifyContent: 'center',
                   backgroundPosition: 'center',
                   backgroundImage: 'url("/assets/svg/nav_background.svg")',
+                  width: '30rem',
                   backgroundRepeat: 'no-repeat',
                   padding: '3vh 0',
                   marginTop: '10vh',
@@ -61,7 +62,7 @@ export default {
                   uuid: 'link-svg',
                   type: 'link',
                   title: 'shop',
-                  href: '/',
+                  href: '/shop',
                   svgSrc: '/assets/svg/nav_item_03.svg',
                   hoverTitle: 'SHOP',
                 },
@@ -69,7 +70,7 @@ export default {
                   uuid: 'link-svg',
                   type: 'link',
                   title: 'info',
-                  href: '/',
+                  href: '/info',
                   svgSrc: '/assets/svg/nav_item_04.svg',
                   hoverTitle: 'INFO',
                 },
@@ -78,6 +79,16 @@ export default {
             },
           ],
           customStyles: {
+            '@global': {
+              '@font-face': {
+                fontFamily: 'Helvetica',
+                src: 'url("assets/fonts/Helvetica.ttf") format("truetype")',
+                fontStyle: 'normal',
+              },
+              '*': {
+                fontFamily: 'Helvetica',
+              }
+            },
             drawer: {
               width: '40rem',
               maxWidth: '80vw',
@@ -85,9 +96,9 @@ export default {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              '& logo': {
-                height: '13vh',
-                maxHeight: '13vh'
+              alignItems: 'center',
+              '& $logo': {
+                width: '30rem',
               },
               '& $navItem': {
                 width: '100%',
@@ -97,7 +108,7 @@ export default {
                 display: 'flex',
                 alignContent: 'center',
                 justifyContent: 'center',
-                fontSize: '8vh',
+                fontSize: '4rem',
                 color: 'black',
                 textDecoration: 'none',
               }
@@ -130,7 +141,7 @@ export default {
               imageWrapper: {
                 '& $image': {
                   maxWidth: '100%',
-                  maxHeight: '100vh',
+                  height: '95vh',
                 },
                 '& $image:not(:first-child)': {
                   marginTop: '2rem',
@@ -197,6 +208,10 @@ export default {
               },
               {
                 label: '',
+                src:'/assets/portfolio/PORTFOLIO_Seite_15.jpg',
+              },
+              {
+                label: '',
                 src:'/assets/portfolio/PORTFOLIO_Seite_16.jpg',
               },
               {
@@ -218,7 +233,25 @@ export default {
             ]
           }],
           pages: []
-        }
+        },
+        {
+          path: 'info',
+          uuid: 'tati-info',
+          components: [
+            {
+              uuid: 'deprecate-tati-info',
+              type: 'deprecate-tati-info',
+            }
+          ],
+        },
+        {
+          path: 'shop',
+          uuid: 'tati-shop',
+          components: [{
+            uuid: 'deprecate-tati-shop',
+            type: 'deprecate-tati-shop',
+          }],
+        },
       ]
     },
   ],

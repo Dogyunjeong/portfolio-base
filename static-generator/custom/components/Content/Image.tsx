@@ -14,7 +14,6 @@ export interface ImageProps extends CustomComponentTypes.CustomComponentBaseProp
 }
 
 const Image: React.SFC<ImageProps> = ({ classes = {}, componentData }) => {
-  console.log('classes: ', classes);
   const { src, alt, customStyles } = componentData
   const customClasses = useStyles(customStyles)
   return (

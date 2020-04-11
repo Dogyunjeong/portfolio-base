@@ -18,7 +18,6 @@ const ModifyComponent: React.SFC<ModifyComponentProps> = ({
     const [showComponentBorder, setShowComponentBorder] = useState(false)
     const toggleShowBoarder = (event: React.MouseEvent) => {
         event.stopPropagation()
-        console.log('test')
         setShowComponentBorder(!showComponentBorder)
     }
     return (
