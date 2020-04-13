@@ -16,7 +16,6 @@ const generateStylesWithStatic = (styleToMake?: {[key:string]: any}) => {
     if (key === 'backgroundImage' || key === 'background-image') {
       const match = /url\(\"(.*)\"\)/gi.exec(value)
       const url = _.get(match, '[1]', value)
-      // result[key] = STATIC_PATH[url]
       result[key] = `url("${setSrc(url)}")`
       return
     }

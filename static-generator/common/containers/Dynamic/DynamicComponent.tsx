@@ -11,6 +11,7 @@ import Paragraph from '../../../custom/components/Content/Paragraph'
 import TatiHome from '../../../custom/components/Deprecate/TatiHome'
 import TatiInfo from '../../../custom/components/Deprecate/TatiInfo'
 import TatiShop from '../../../custom/components/Deprecate/TatiShop'
+import TatiArchive from '../../../custom/components/Deprecate/TatiArchive'
 
 export interface DynamicComponentProps extends CustomComponentTypes.CustomComponentProps {
 }
@@ -28,6 +29,7 @@ const DynamicComponent: React.FC<DynamicComponentProps> = (props: any) => {
     case 'deprecate-tati-home': return <TatiHome {...props} />
     case 'deprecate-tati-info': return <TatiInfo {...props} />
     case 'deprecate-tati-shop': return <TatiShop {...props} />
+    case 'deprecate-tati-achive': return <TatiArchive {...props} />
     default: return <Loading />
   }
 }

@@ -1,27 +1,32 @@
 import React from 'react'
+import clsx from 'clsx'
 import CustomComponentTypes from "../../../common/types/customComponent.type";
 import FGrid from '../../../common/components/Layouts/FGrid'
 import { useStyles } from '../../../common/hooks/styles.hook'
 import { baseStyle } from './styles'
 
 const styles = {
-  info: {
-    'a': {
+  infoWrapper: {
+    marginTop: '7.5rem',
+    '& a': {
       color: 'black',
-      
+      textDecoration: 'none',
     }
-  }
+  },
 }
 
 export interface TatiInfoProps extends CustomComponentTypes.CustomComponentBaseProps {
 }
 
 const TatiInfo: React.SFC<TatiInfoProps> = ({ classes = {}, componentData }) => {
-  const customClasses = useStyles(baseStyle)
+  const customClasses = useStyles({
+    ...baseStyle,
+    ...styles,
+  })
   return (
     <FGrid container>
       <FGrid item xs={12} >
-        <div className={customClasses.wrapper}>
+        <div className={clsx(customClasses.wrapper, customClasses.infoWrapper)}>
           <h2 className={[customClasses.emphasize, customClasses.blue].join(' ')}>
             CONTACT:
           </h2>

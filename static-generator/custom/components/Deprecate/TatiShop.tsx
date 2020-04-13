@@ -3,11 +3,15 @@ import CustomComponentTypes from "../../../common/types/customComponent.type";
 import FGrid from '../../../common/components/Layouts/FGrid'
 import { useStyles } from '../../../common/hooks/styles.hook'
 import { baseStyle } from './styles'
+import { setSrc } from '../../../common/utilities/common.util'
 
 const style = {
+  shopWrapper: {
+    marginTop: '25vh',
+  },
   instagramLogoWrapper: {
     display: 'flex',
-    marginTop: '4.4rem',
+    marginTop: '4rem',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -27,7 +31,7 @@ const TatShop: React.SFC<TatShopProps> = ({ classes = {}, componentData }) => {
   return (
     <FGrid container>
       <FGrid item xs={12} >
-        <div className={[customClasses.wrapper, customClasses.blue].join(' ')}>
+        <div className={[customClasses.wrapper, customClasses.blue, customClasses.shopWrapper].join(' ')}>
           <p className={[customClasses.emphasize, customClasses.green].join(' ')}>
             <span className={customClasses.blue}>THE SHOP</span> IS
             <br/>
@@ -42,7 +46,7 @@ const TatShop: React.SFC<TatShopProps> = ({ classes = {}, componentData }) => {
           </p>
           <div className={customClasses.instagramLogoWrapper}>
             <a href="https://www.instagram.com/tati_jewellery_/">
-              <img className={customClasses.instagramLogo} src="/assets/png/instagram_black_logo.png" alt="Instagram log" />
+              <img className={customClasses.instagramLogo} src={setSrc('/assets/png/instagram_black_logo.png')} alt="Instagram log" />
             </a>
           </div>
         </div>

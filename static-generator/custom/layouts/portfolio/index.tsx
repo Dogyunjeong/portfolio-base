@@ -25,13 +25,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buil
       display: 'flex',
       '& $fixedNav': {
         maxHeight: '100vh',
-        marginRight: '2rem',
+        marginRight: '8rem',
         position: 'sticky',
         top: 0
       },
     },
     content: {
-      padding: '1rem 2rem'
+      margin: '2rem',
+      width: '100%',
     },
     fixedNav: {},
   })

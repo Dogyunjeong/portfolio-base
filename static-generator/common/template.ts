@@ -35,11 +35,11 @@ export default {
                   justifyContent: 'center',
                   backgroundPosition: 'center',
                   backgroundImage: 'url("/assets/svg/nav_background.svg")',
-                  width: '30rem',
+                  width: '26rem',
                   backgroundRepeat: 'no-repeat',
                   padding: '3vh 0',
                   marginTop: '10vh',
-                }
+                },
               },
               components: [
                 {
@@ -56,7 +56,7 @@ export default {
                   title: 'archive',
                   href: '/archive',
                   svgSrc: '/assets/svg/nav_item_02.svg',
-                  hoverTitle: 'ARCHIVE',
+                  hoverTitle: 'archive',
                 },
                 {
                   uuid: 'link-svg',
@@ -64,7 +64,7 @@ export default {
                   title: 'shop',
                   href: '/shop',
                   svgSrc: '/assets/svg/nav_item_03.svg',
-                  hoverTitle: 'SHOP',
+                  hoverTitle: 'shop',
                 },
                 {
                   uuid: 'link-svg',
@@ -72,7 +72,7 @@ export default {
                   title: 'info',
                   href: '/info',
                   svgSrc: '/assets/svg/nav_item_04.svg',
-                  hoverTitle: 'INFO',
+                  hoverTitle: 'info',
                 },
 
               ]
@@ -95,10 +95,11 @@ export default {
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
               alignItems: 'center',
               '& $logo': {
-                width: '30rem',
+                marginTop: '11vh',
+                width: '22rem',
               },
               '& $navItem': {
                 width: '100%',
@@ -135,103 +136,107 @@ export default {
           path: 'archive',
           uuid: 'tati-archive',
           components: [{
-            uuid: 'portfolio-collection',
-            type: 'image-collection',
-            customStyles: {
-              imageWrapper: {
-                '& $image': {
-                  maxWidth: '100%',
-                  height: '95vh',
-                },
-                '& $image:not(:first-child)': {
-                  marginTop: '2rem',
-                }
-              },
-              image: {}
-            },
-            images: [
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_01.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_02.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_03.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_04.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_05.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_06.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_07.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_08.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_09.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_10.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_11.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_12.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_13.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_14.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_15.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_16.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_17.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_18.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_19.jpg',
-              },
-              {
-                label: '',
-                src:'/assets/portfolio/PORTFOLIO_Seite_20.jpg',
-              },
-            ]
-          }],
+            uuid: 'deprecate-tati-achive'
+          },
+          // {
+          //   uuid: 'portfolio-collection',
+          //   type: 'image-collection',
+          //   customStyles: {
+          //     imageWrapper: {
+          //       '& $image': {
+          //         maxWidth: '100%',
+          //         height: '95vh',
+          //       },
+          //       '& $image:not(:first-child)': {
+          //         marginTop: '2rem',
+          //       }
+          //     },
+          //     image: {}
+          //   },
+          //   images: [
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_01.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_02.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_03.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_04.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_05.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_06.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_07.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_08.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_09.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_10.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_11.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_12.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_13.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_14.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_15.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_16.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_17.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_18.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_19.jpg',
+          //     },
+          //     {
+          //       label: '',
+          //       src:'/assets/portfolio/PORTFOLIO_Seite_20.jpg',
+          //     },
+          //   ]
+          // },
+        ],
           pages: []
         },
         {

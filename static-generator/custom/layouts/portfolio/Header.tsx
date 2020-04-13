@@ -8,6 +8,7 @@ const Header: React.FC<CustomLayoutTypes.HeaderProps> = ({ children, headerData,
     header: {
       position: 'sticky',
       top: 0,
+      zIndex: 1000,
     }
   })
   useEffect(() => {
