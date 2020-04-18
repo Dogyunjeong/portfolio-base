@@ -28,11 +28,13 @@ const TatiHome: React.SFC<TatiHomeProps> = ({ classes = {}, componentData }) => 
           </p>
           <p>
             TATI’s products are shaped on a made-to-order basis and therefore is only in a limited edition available.
-          <br/>
+          </p>
+          <p>
             TATI’s things capture our generations identity to create a new value of materials, objects, jewellery and clothes.
           </p>
           <p className={[customClasses.green, customClasses.emphasize].join(' ')}>
             HOPE YOU FIND HAPPINESS IN HERE.
+            <br/>
             <span className={customClasses.blue}>GOOD LUCK!</span>
           </p>
         </div>

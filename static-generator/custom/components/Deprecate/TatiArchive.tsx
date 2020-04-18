@@ -35,16 +35,23 @@ const styles = {
   },
   contentWrapper: {
     '& $content': {
-      width: '100%',
+      maxWidth: '100%',
+      height: 'auto',
+      width: 'auto',
       maxHeight: '95vh',
-      boxShadow: '0px 0px 15px grey'
+      margin: 'auto',
+      boxShadow: '0px 0px 15px grey',
     },
     '& $content:not(:first-child)': {
       marginTop: '2rem',
     },
+    '& $mobile': {
+      width: '32.4%',
+    }
   },
   content: {},
   listItemText: {},
+  mobile: {},
 }
 
 // const TatiArchive: React.SFC<TatiArchiveProps> = ({ classes = {}, componentData }) => {
@@ -97,8 +104,8 @@ const TatiArchive: React.SFC<TatiArchiveProps> = (props) => {
                   {_.map(data.videos, (video) => {
                     return (
                       <VimeoEmbed
-                        className={classes.content}
-                        componentData={{ vimeoId: video.vimeoId}}
+                        className={clsx(classes.content, video.size && classes[video.size])}
+                        componentData={{ vimeoId: video.vimeoId }}
                       />
                     )
                   })}
@@ -157,7 +164,7 @@ const testDataSet = [
       { vimeoId: '406250865' },
       { vimeoId: '406269296' },
       { vimeoId: '406258426' },
-      { vimeoId: '399422881' },
+      { vimeoId: '399422881', size: 'mobile' },
     ]
   },
   {
@@ -242,7 +249,7 @@ const testDataSet = [
       '/assets/portfolio/Self_dramatization13.jpg',
       '/assets/portfolio/Self_dramatization14.jpg',
       '/assets/portfolio/Self_dramatization15.jpg',
-      '/assets/portfolio/Self_dramatization16jpg',
+      '/assets/portfolio/Self_dramatization16.jpg',
       '/assets/portfolio/Self_dramatization17.jpg',
     ]
   },

@@ -14,7 +14,7 @@ interface PortfolioProps extends CustomLayoutTypes.LayoutProps {
 const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buildingTools }) => {
   const customClasses = useStyles(layoutData.header.customStyles)
   const size = useWindowSize()
-  const fixed = size.width > 1600
+  const fixed = size.width > 1440
   const classes = useStyles({
     '@global': {
       'main': {
@@ -25,13 +25,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buil
       display: 'flex',
       '& $fixedNav': {
         maxHeight: '100vh',
-        marginRight: '8rem',
         position: 'sticky',
         top: 0
       },
     },
     content: {
-      margin: '2rem',
+      padding: '2rem',
+      boxSizing: 'border-box',
       width: '100%',
     },
     fixedNav: {},
