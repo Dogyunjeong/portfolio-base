@@ -91,6 +91,7 @@ export const IMPORT_PATH: {[key: string]: string} = {
   ['/assets/svg/nav_item_04.svg']: require('./assets/svg/nav_item_04.svg'),
   ['/assets/svg/nav_background.svg']: require('./assets/svg/nav_background.svg'),
   ['/assets/png/instagram_black_logo.png']: require('./assets/png/instagram_black_logo.png'),
+  ['/assets/png/tati_info_profile.png']: require('./assets/png/tati_info_profile.png'),
   ...IMPORT_PORTFOLIO_PATH,
   ...IMPORT_PUBLIC_ASSETS_PATH,
 }

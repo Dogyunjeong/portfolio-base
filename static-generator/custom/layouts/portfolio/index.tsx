@@ -30,7 +30,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ layoutData, children, build, buil
       },
     },
     content: {
-      padding: '2rem',
+      padding: '0 2rem',
       boxSizing: 'border-box',
       width: '100%',
     },

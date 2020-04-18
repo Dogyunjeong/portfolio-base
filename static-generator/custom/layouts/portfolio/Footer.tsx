@@ -5,11 +5,13 @@ import { useStyles } from '../../../common/hooks/styles.hook'
 const Footer: React.FC<CustomLayoutTypes.FooterProps> = ({ footerData }) => {
   const classes = useStyles({
     root: {
+      display: 'none',
       paddingTop: '2rem',
       '& $copyRightArea': {
         lineHeight: '2rem'
       },
-      copyRightArea:{}
+      copyRightArea: {
+      }
     },
   })
   return (

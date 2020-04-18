@@ -16,7 +16,8 @@ export interface TatiArchiveProps {
 const styles = {
   ...baseStyle,
   list: {
-    width: '100%'
+    width: '100%',
+    marginTop: '6vh',
   },
   listItem: {
     width: '100%',

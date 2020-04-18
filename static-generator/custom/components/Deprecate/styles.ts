@@ -9,7 +9,7 @@ const baseStyle = {
     fontSize: '4rem',
     fontWeight: 600,
     color: '#ff6ec7',
-    textShadow: '-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black',
+    textShadow: '-1.6px -1.6px black, 1.6px -1.6px black, -1.6px 1.6px black, 1.6px 1.6px black',
   },
   yellow: {
     color: '#ffed00',

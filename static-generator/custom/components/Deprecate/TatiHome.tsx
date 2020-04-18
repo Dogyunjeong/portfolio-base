@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import CustomComponentTypes from "../../../common/types/customComponent.type";
 import FGrid from '../../../common/components/Layouts/FGrid'
 import { useStyles } from '../../../common/hooks/styles.hook'
@@ -8,11 +9,19 @@ export interface TatiHomeProps extends CustomComponentTypes.CustomComponentBaseP
 }
 
 const TatiHome: React.SFC<TatiHomeProps> = ({ classes = {}, componentData }) => {
-  const customClasses = useStyles(baseStyle)
+  const customClasses = useStyles({
+    ...baseStyle,
+    greeting: {
+      margin: '0.67em 0 0 0'
+    },
+    homeWrapper: {
+      marginTop: '8vh',
+    }
+  })
   return (
     <FGrid container>
       <FGrid item xs={12} >
-        <div className={customClasses.wrapper}>
+        <div className={clsx(customClasses.wrapper, customClasses.homeWrapper)}>
           <h1 className={customClasses.emphasize}>
              WELCOME TO TATI‘S
             <br/>
@@ -32,7 +41,7 @@ const TatiHome: React.SFC<TatiHomeProps> = ({ classes = {}, componentData }) => 
           <p>
             TATI’s things capture our generations identity to create a new value of materials, objects, jewellery and clothes.
           </p>
-          <p className={[customClasses.green, customClasses.emphasize].join(' ')}>
+          <p className={[customClasses.green, customClasses.emphasize, customClasses.greeting].join(' ')}>
             HOPE YOU FIND HAPPINESS IN HERE.
             <br/>
             <span className={customClasses.blue}>GOOD LUCK!</span>
