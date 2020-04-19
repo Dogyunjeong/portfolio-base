@@ -8,11 +8,11 @@ const baseStyle = {
   emphasize: {
     fontSize: '4rem',
     fontWeight: 600,
-    color: '#ff6ec7',
+    color: '#e5057d',
     textShadow: '-1.6px -1.6px black, 1.6px -1.6px black, -1.6px 1.6px black, 1.6px 1.6px black',
   },
   yellow: {
-    color: '#ffed00',
+    color: '#feee32',
   },
   green: {
     color: '#70b62c',
@@ -21,7 +21,7 @@ const baseStyle = {
     color: '#009fe3',
   },
   pink: {
-    color: '#ff6ec7'
+    color: '#e5057d'
   }
 }
 
