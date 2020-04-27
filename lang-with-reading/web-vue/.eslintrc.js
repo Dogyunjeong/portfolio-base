@@ -10,6 +10,6 @@ module.exports = {
     quotes: [2, "single", "avoid-escape"],
   },
   parserOptions: {
-    parser: "typescript-eslint-parser"
+    parser: '@typescript-eslint/parser'
   }
 };
