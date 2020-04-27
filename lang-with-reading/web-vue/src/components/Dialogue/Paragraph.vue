@@ -4,14 +4,17 @@
       <div class="text-xs-center" v-if="showSpeaker">
         <v-chip close>
           <v-avatar>
-            <img :src="paragraph.speaker.image" :alt="paragraph.speaker.name + '-avatar'" />
+            <img
+              :src="paragraph.speaker.image"
+              :alt="paragraph.speaker.name + '-avatar'"
+            />
           </v-avatar>
-          {{paragraph.speaker.name}}
+          {{ paragraph.speaker.name }}
         </v-chip>
       </div>
     </v-flex>
     <v-flex xs9 md10>
-      <p class="paragraph-content">{{paragraph.content}}</p>
+      <p class="paragraph-content">{{ paragraph.content }}</p>
     </v-flex>
   </v-layout>
 </template>
@@ -21,15 +24,15 @@ export default {
   props: {
     showSpeaker: {
       type: Boolean,
-      required: true
+      required: true,
     },
     paragraph: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-  name: "Paragraph"
-};
+  name: 'Paragraph',
+}
 </script>
 
 <style lang="postcss" scoped>

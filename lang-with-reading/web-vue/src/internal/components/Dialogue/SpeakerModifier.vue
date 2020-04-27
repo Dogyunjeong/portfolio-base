@@ -29,7 +29,9 @@
             </v-list-tile>
           </template>
         </v-list>
-        <v-btn color="red lighten-2" flat @click="isOpenDialog = false">Cancel</v-btn>
+        <v-btn color="red lighten-2" flat @click="isOpenDialog = false"
+          >Cancel</v-btn
+        >
       </template>
     </v-dialog>
   </v-layout>
@@ -74,4 +76,3 @@ export default {
   },
 }
 </script>
-

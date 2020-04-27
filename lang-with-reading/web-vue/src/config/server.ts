@@ -1,1 +1,1 @@
-export const HOST_URI = "http://localhost:8020";
+export const HOST_URI = 'http://localhost:8020'

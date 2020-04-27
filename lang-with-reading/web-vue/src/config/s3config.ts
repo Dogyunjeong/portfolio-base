@@ -1,1 +1,1 @@
-export const BASE_PATH = `~/projects/tmp/s3Local`
+export const BASE_PATH = '~/projects/tmp/s3Local'

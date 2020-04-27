@@ -1,20 +1,19 @@
-import { shallowMount } from "@vue/test-utils";
-import CreateDict from "@/internal/containers/Dialogue/CreateDict";
+import { shallowMount } from '@vue/test-utils'
+import CreateDict from '@/internal/containers/Dialogue/CreateDict.vue'
 
-
-describe("CreateDict.vue", () => {
+describe('CreateDict.vue', () => {
   const props = {
-    paragraph: "new message",
+    paragraph: 'new message',
   }
 
   const makeWrapper = () => {
     const wrapper = shallowMount(CreateDict, {
       propsData: props,
-    });
+    })
     return wrapper
   }
-  it("render correctly", () => {
+  it('render correctly', () => {
     const wrapper = makeWrapper()
-    expect(wrapper.exists()).toBe(true);
-  });
-});
+    expect(wrapper.exists()).toBe(true)
+  })
+})

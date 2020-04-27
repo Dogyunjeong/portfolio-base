@@ -9,11 +9,9 @@ class Request {
     })
   }
   public get = (url: string, config: object = {}) => {
-    return this.instance.get(url, config).then(
-      (response): any => {
-        return response.data
-      },
-    )
+    return this.instance.get(url, config).then((response): any => {
+      return response.data
+    })
   }
   public post = (url: string, body: object, config: object = {}) => {
     console.log('url: ', url)

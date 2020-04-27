@@ -1,6 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'
 
-export default _;
-export {
-  _,
-};
+export default _
+export { _ }

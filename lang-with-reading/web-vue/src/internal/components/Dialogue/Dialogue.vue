@@ -1,5 +1,5 @@
 <template>
-   <v-list two-line>
+  <v-list two-line>
     <template v-for="(paragraph, index) in processedDialouge">
       <v-divider
         v-if="item.divider"
@@ -7,13 +7,9 @@
         :inset="item.inset"
       ></v-divider>
 
-      <v-list-tile
-        :key="`paragraph-${index}`"
-        avatar
-        @click=""
-      >
+      <v-list-tile :key="`paragraph-${index}`" avatar @click="">
         <v-list-tile-avatar>
-          <img :src="paragraph.speaker.image">
+          <img :src="paragraph.speaker.image" />
           hello
         </v-list-tile-avatar>
 
@@ -34,20 +30,23 @@ export default {
     sourceDialogue: {
       type: Array,
       required: true,
-    }
+    },
   },
   computed: {
     processedDialouge() {
-      const processedDialouge = _.map(this.sourceDialogue.paragraphs, (paragraph, idx) => {
-        const speaker = _.find(this.sourceDialogue.speakers, (speaker) => {
-          return _.includes(speaker.paragraphs, idx)
-        })
-        return {
-          content: paragraph,
-          speaker,
-        }
-      })
-    }
+      const processedDialouge = _.map(
+        this.sourceDialogue.paragraphs,
+        (paragraph, idx) => {
+          const speaker = _.find(this.sourceDialogue.speakers, speaker => {
+            return _.includes(speaker.paragraphs, idx)
+          })
+          return {
+            content: paragraph,
+            speaker,
+          }
+        },
+      )
+    },
   },
 }
 </script>

@@ -1,6 +1,9 @@
 <template>
   <v-card>
-    <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+      aspect-ratio="2.75"
+    ></v-img>
 
     <v-card-title primary-title>
       <div>
@@ -16,17 +19,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 export default Vue.extend({
   props: {
-    dialogue: {}
+    dialogue: {},
   },
   methods: {
     handleViewDialogue() {
-      this.$emit("clickDialogue", this.dialogue);
-    }
-  }
-});
+      this.$emit('clickDialogue', this.dialogue)
+    },
+  },
+})
 </script>
 
 sty

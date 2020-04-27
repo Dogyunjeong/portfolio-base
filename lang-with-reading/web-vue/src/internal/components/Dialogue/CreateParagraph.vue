@@ -1,11 +1,8 @@
 <template>
   <v-layout>
     <v-flex xs2>
-      <v-avatar
-        v-if="showSpeaker"
-        color="grey lighten-4"
-      >
-        <img :src="paragraph.speaker.image" alt="avatar">
+      <v-avatar v-if="showSpeaker" color="grey lighten-4">
+        <img :src="paragraph.speaker.image" alt="avatar" />
       </v-avatar>
     </v-flex>
     <v-flex xs9>
@@ -35,13 +32,13 @@ export default {
     showSpeaker: {
       type: Boolean,
       required: true,
-    }
+    },
   },
   name: 'CreateParagraph',
   methods: {
     handleClickDelete() {
       this.$emit('click-delete')
-    }
-  }
+    },
+  },
 }
 </script>

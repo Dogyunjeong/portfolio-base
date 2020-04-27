@@ -4,12 +4,16 @@
       <v-layout justify-center>
         <v-flex xs-2 md1>File Path Name</v-flex>
         <v-flex xs-8 md-4>
-          <v-text-field label="Name" v-model="dialogues[0].name" @change="handleChangeUuid" />
+          <v-text-field
+            label="Name"
+            v-model="dialogues[0].name"
+            @change="handleChangeUuid"
+          />
         </v-flex>
       </v-layout>
       <template v-for="(dialogue, dialogueIdx) in dialogues">
         <v-layout justify-center :key="`title-dialogue-${dialogueIdx}`">
-          <v-flex xs-2 md1>{{dialogue.lang}}</v-flex>
+          <v-flex xs-2 md1>{{ dialogue.lang }}</v-flex>
           <v-flex xs-8 md-4>
             <v-text-field label="Title" v-model="dialogue.title" />
           </v-flex>
@@ -18,10 +22,14 @@
 
       <v-layout justify-center>
         <v-flex xs-12 md-6>
-          <template v-for="(paragraph, paragraphIdx) in dialogues[0].paragraphs">
+          <template
+            v-for="(paragraph, paragraphIdx) in dialogues[0].paragraphs"
+          >
             <template v-for="(dialogue, dialogueIdx) in dialogues">
               <CreateParagraph
-                :key="`create-paragraph-${paragraphIdx}-dialogue=${dialogueIdx}`"
+                :key="
+                  `create-paragraph-${paragraphIdx}-dialogue=${dialogueIdx}`
+                "
                 :language="dialogue.lang"
                 :showSpeaker="dialogueIdx === 0"
                 :paragraph="dialogue.paragraphs[paragraphIdx]"
@@ -35,7 +43,10 @@
 
     <v-layout justify-center>
       <v-flex xs3>
-        <SpeakerModifier :speakers="speakers" @select-speaker="handleSelectSpeaker" />
+        <SpeakerModifier
+          :speakers="speakers"
+          @select-speaker="handleSelectSpeaker"
+        />
       </v-flex>
     </v-layout>
 
@@ -123,4 +134,3 @@ export default {
   },
 }
 </script>
-
