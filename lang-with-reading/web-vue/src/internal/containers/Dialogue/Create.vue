@@ -48,79 +48,79 @@
 </template>
 
 <script>
-import CreateParagraph from "@/internal/components/Dialogue/CreateParagraph.vue";
-import SpeakerModifier from "@/internal/components/Dialogue/SpeakerModifier.vue";
-import { _ } from "@/utilities/lodash";
-import { dialogueHandler } from "@/services/dialogueHandler";
-import axios from "axios";
+import CreateParagraph from '@/internal/components/Dialogue/CreateParagraph.vue'
+import SpeakerModifier from '@/internal/components/Dialogue/SpeakerModifier.vue'
+import { _ } from '@/utilities/lodash'
+import { dialogueHandler } from '@/services/dialogueHandler'
+import axios from 'axios'
 
 export default {
-  name: "CreateDialogue",
+  name: 'CreateDialogue',
   components: {
     CreateParagraph,
-    SpeakerModifier
+    SpeakerModifier,
   },
   data() {
     //  dailogues: [ eachDialogue, ..., ..., ...]
     return {
       speakers: [
         {
-          uuid: "tony-speaker",
+          uuid: 'tony-speaker',
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7DraIw5I3K2b3OfQ8W1dGfhn6ZPyA3NFJDagYTTDDc6x59fS8cg",
-          name: "Tony"
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7DraIw5I3K2b3OfQ8W1dGfhn6ZPyA3NFJDagYTTDDc6x59fS8cg',
+          name: 'Tony',
         },
         {
-          uuid: "maya-speaker",
+          uuid: 'maya-speaker',
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRIoV0Ge1vz7k5V3Oj4UXM315tnCEmOXzvRl8cZ4riischjk5a",
-          name: "Maya"
-        }
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRIoV0Ge1vz7k5V3Oj4UXM315tnCEmOXzvRl8cZ4riischjk5a',
+          name: 'Maya',
+        },
       ],
       dialogues: [
         {
-          uuid: "",
-          title: "",
-          lang: "kr",
-          paragraphs: []
+          uuid: '',
+          title: '',
+          lang: 'kr',
+          paragraphs: [],
         },
         {
-          uuid: "",
-          title: "",
-          lang: "en",
-          paragraphs: []
-        }
-      ]
-    };
+          uuid: '',
+          title: '',
+          lang: 'en',
+          paragraphs: [],
+        },
+      ],
+    }
   },
   methods: {
     handleChangeUuid(uuid) {
       this.dialogues.forEach(dialogue => {
-        dialogue.uuid = uuid;
-      });
+        dialogue.uuid = uuid
+      })
     },
     handleClickDeleteParagraph(idx) {
       _.forEach(this.dialogues, dialouge => {
-        dialouge.paragraphs.splice(idx, 1);
-      });
+        dialouge.paragraphs.splice(idx, 1)
+      })
     },
     handleSelectSpeaker(speaker) {
       _.forEach(this.dialogues, dialogue => {
-        dialogue.paragraphs.push({ speaker, content: null });
-      });
+        dialogue.paragraphs.push({ speaker, content: null })
+      })
     },
     handleSaveDialogue() {
       this.dialogues.forEach(dialogue => {
-        dialogueHandler.saveDialogue(dialogue);
-      });
-    }
+        dialogueHandler.saveDialogue(dialogue)
+      })
+    },
   },
   mounted() {
-    console.log("create mounted");
-    axios.get("http://localhost:8020/health").then(response => {
-      console.log("axios respoonse", response);
-    });
-  }
-};
+    console.log('create mounted')
+    axios.get('http://localhost:8020/health').then(response => {
+      console.log('axios respoonse', response)
+    })
+  },
+}
 </script>
 

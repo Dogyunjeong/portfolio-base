@@ -37,41 +37,41 @@
 
 <script>
 export default {
-  name: "SpeakerModifier",
+  name: 'SpeakerModifier',
   props: {
     speakers: {
       type: Array,
       required: true,
-      default: [
+      default: () => [
         {
-          uuid: "tony-speaker",
+          uuid: 'tony-speaker',
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7DraIw5I3K2b3OfQ8W1dGfhn6ZPyA3NFJDagYTTDDc6x59fS8cg",
-          name: "Tony"
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7DraIw5I3K2b3OfQ8W1dGfhn6ZPyA3NFJDagYTTDDc6x59fS8cg',
+          name: 'Tony',
         },
         {
-          uuid: "maya-speaker",
+          uuid: 'maya-speaker',
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRIoV0Ge1vz7k5V3Oj4UXM315tnCEmOXzvRl8cZ4riischjk5a",
-          name: "Maya"
-        }
-      ]
-    }
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRIoV0Ge1vz7k5V3Oj4UXM315tnCEmOXzvRl8cZ4riischjk5a',
+          name: 'Maya',
+        },
+      ],
+    },
   },
   data() {
     return {
-      isOpenDialog: false
-    };
+      isOpenDialog: false,
+    }
   },
   methods: {
     handleAddSpeaker() {
-      this.isOpenDialog = true;
+      this.isOpenDialog = true
     },
     handleClickSpeaker(speaker) {
-      this.isOpenDialog = false;
-      this.$emit("select-speaker", speaker);
-    }
-  }
-};
+      this.isOpenDialog = false
+      this.$emit('select-speaker', speaker)
+    },
+  },
+}
 </script>
 

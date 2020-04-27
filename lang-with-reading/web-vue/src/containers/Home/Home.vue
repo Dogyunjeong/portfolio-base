@@ -16,33 +16,33 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import DialogueCard from "@/components/Home/DialogueCard";
-import { dialogueHandler } from "@/services/dialogueHandler";
-import { _ } from "@/utilities/lodash";
+import Vue from 'vue'
+import DialogueCard from '@/components/Home/DialogueCard'
+import { dialogueHandler } from '@/services/dialogueHandler'
+import { _ } from '@/utilities/lodash'
 
 export default Vue.extend({
   components: {
-    DialogueCard
+    DialogueCard,
   },
   data() {
     return {
-      categories: []
-    };
+      categories: [],
+    }
   },
   methods: {
     loadCategory() {
-      console.log("loadCategory is invoked");
+      console.log('loadCategory is invoked')
       return dialogueHandler
         .loadCategories()
-        .then(categories => (this.categories = categories));
+        .then(categories => (this.categories = categories))
     },
     handleViewDialogue(dialogue) {
-      this.$router.push(`/dialogue/${dialogue.uuid}`);
-    }
+      this.$router.push(`/dialogue/${dialogue.uuid}`)
+    },
   },
   mounted() {
-    this.loadCategory();
-  }
-});
+    this.loadCategory()
+  },
+})
 </script>
