@@ -15,7 +15,7 @@ class Request {
   }
   public post = (url: string, body: object, config: object = {}) => {
     console.log('url: ', url)
-    return this.instance.post(url, body, config).then(response => {
+    return this.instance.post(url, body, config).then((response: any) => {
       return response
     })
   }
