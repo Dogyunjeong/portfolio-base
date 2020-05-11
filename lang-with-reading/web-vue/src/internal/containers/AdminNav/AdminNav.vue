@@ -20,14 +20,22 @@
     <v-list dense nav>
       <v-list-item link href="/internal">
         <v-list-item-avatar class="align-self-center" color="white" contain>
-          <v-img
+          <!-- <v-img
             src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
             max-height="30"
-          />
+          /> -->
         </v-list-item-avatar>
 
         <v-list-item-content>
           <v-list-item-title class="display-1" v-text="'test'" />
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item link href="/internal/signin">
+        <v-list-item-icon>
+          <v-icon >$signIn</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>sign in</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>

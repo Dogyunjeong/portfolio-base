@@ -12,4 +12,8 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
+  globals: {
+    firebase: 'readonly',
+    firebaseui: 'readonly',
+  }
 }
