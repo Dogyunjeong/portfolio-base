@@ -23,19 +23,28 @@
           <!-- <v-img
             src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
             max-height="30"
-          /> -->
+          />-->
         </v-list-item-avatar>
 
         <v-list-item-content>
           <v-list-item-title class="display-1" v-text="'test'" />
         </v-list-item-content>
       </v-list-item>
-      <v-list-item link href="/internal/signin">
+      <v-list-item v-if="!isLoggedIn" link href="/internal/authentication">
         <v-list-item-icon>
-          <v-icon >$signIn</v-icon>
+          <v-icon>$signIn</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>sign in</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item v-else link>
+        <v-list-item-icon>
+          <v-icon>$signOut</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>Sign out</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -46,7 +55,7 @@
       <v-list-item v-for="item in items" :key="item.title" link :href="item.to">
         <v-list-item-icon>
           <!-- <v-icon v-text="'$dialogue'">{{ item.icon }}</v-icon> -->
-          <v-icon >{{ item.icon }}</v-icon>
+          <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -58,12 +67,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'AdminNav',
   props: {
     expandOnHover: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() { return ({
@@ -82,6 +92,14 @@ export default {
       },
     ],
   }) },
+  computed: {
+    ...mapState({
+      isLoggedIn: (s) => s.auth.isLoggedIn,
+    }),
+  },
+  mounted() {
+    console.log('Admin nav is mounted')
+  }
 }
 </script>
 

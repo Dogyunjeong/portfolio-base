@@ -15,6 +15,7 @@ export default new Vuetify({
     values: {
       // signIn: 'mdi-book-open-outline',
       signIn: 'fas fa-sign-in-alt',
+      signOut: 'fas fa-sign-out-alt',
       dialogue: 'mdi-book-open-outline',
       addDialogue: 'mdi-pencil',
     },

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <AdminNav v-if="isLoggedIn"></AdminNav>
+    <AdminNav></AdminNav>
     <router-view></router-view>
   </v-container>
 </template>
@@ -14,11 +14,10 @@ export default {
   components: { AdminNav },
   data() {
     return {
-      isLoggedIn: false,
     }
   },
   async created() {
-    this.isLoggedIn = await this.checkAuthentication()
+    const isLoggedIn = await this.checkAuthentication()
   }
 };
 </script>

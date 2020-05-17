@@ -7,7 +7,7 @@ const routes: RouteConfig[] = [
   },
   {
     path: 'authentication',
-    name: 'create dialogue',
+    name: 'Authentication',
     component: () => import('../containers/Authentication/Authentication.vue'),
   },
   {
