@@ -46,7 +46,7 @@ var routes = Routes{
 		"CreateDialogue",
 		"POST",
 		"/dialogue",
-		CreateDialogue,
+		HandleCreateDialogue,
 	},
 	Route{
 		"GetCategory",

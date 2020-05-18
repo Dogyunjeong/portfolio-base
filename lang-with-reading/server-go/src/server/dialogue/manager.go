@@ -1,0 +1,3 @@
+func CreateDialog(dialogue RawDialogue) {
+
+}

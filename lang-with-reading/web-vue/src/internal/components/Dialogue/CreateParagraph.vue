@@ -1,19 +1,20 @@
 <template>
-  <v-layout>
-    <v-flex xs2>
-      <v-avatar v-if="showSpeaker" color="grey lighten-4">
+  <v-layout class="px-2">
+    <v-flex v-if="showSpeaker" xs2>
+      <v-avatar color="grey lighten-4">
         <img :src="paragraph.speaker.image" alt="avatar" />
       </v-avatar>
     </v-flex>
-    <v-flex xs9>
-      <v-text-field
+    <v-flex xs10>
+      <v-textarea
+        no-resize
         :label="language"
-        :placeholder="'Edit'"
+        rows="2"
         v-model="paragraph.content"
-      ></v-text-field>
+      ></v-textarea>
     </v-flex>
-    <v-flex xs1>
-      <v-icon v-if="showSpeaker" @click.stop="handleClickDelete">delete</v-icon>
+    <v-flex v-if="showDelete" xs2>
+      <v-icon @click.stop="handleClickDelete">delete</v-icon>
     </v-flex>
   </v-layout>
 </template>
@@ -30,6 +31,10 @@ export default {
       required: true,
     },
     showSpeaker: {
+      type: Boolean,
+      required: true,
+    },
+    showDelete: {
       type: Boolean,
       required: true,
     },

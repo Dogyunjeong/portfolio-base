@@ -1,40 +1,41 @@
 <template>
   <v-container>
     <template v-if="dialogues && dialogues.length > 0">
-      <v-layout>
-        <v-flex xs1>
-          Title
+      <v-layout justify-center>
+        <v-flex xs-2 md1>File Path Name</v-flex>
+        <v-flex xs-8 md-4>
+          <v-text-field
+            label="Name"
+            v-model="dialogues[0].name"
+            @change="handleChangeUuid"
+          />
         </v-flex>
-        <template v-for="(dialogue, dialogueIdx) in dialogues">
-            <v-flex xs-5  class="px-2" :key="`title-dialogue-${dialogueIdx}`" >
-            <v-text-field :label="dialogue.lang" v-model="dialogue.title" />
-          </v-flex>
-        </template>
       </v-layout>
+      <template v-for="(dialogue, dialogueIdx) in dialogues">
+        <v-layout justify-center :key="`title-dialogue-${dialogueIdx}`">
+          <v-flex xs-2 md1>{{ dialogue.lang }}</v-flex>
+          <v-flex xs-8 md-4>
+            <v-text-field label="Title" v-model="dialogue.title" />
+          </v-flex>
+        </v-layout>
+      </template>
 
       <v-layout justify-center>
-        <v-flex xs-12>
-          <template v-for="(paragraph, paragraphIdx) in dialogues[0].paragraphs">
-            <v-layout
-              :key="`paragraph-${paragraphIdx}`"
-            >
-              <template v-for="(dialogue, dialogueIdx) in dialogues">
-                <v-flex
-                  xs-6
-                  :key="
-                      `create-paragraph-${paragraphIdx}-dialogue=${dialogueIdx}`
-                    "
-                >
-                  <CreateParagraph
-                    :language="dialogue.lang"
-                    :showSpeaker="dialogueIdx === 0"
-                    :showDelete="dialogueIdx === dialogues.length - 1"
-                    :paragraph="dialogue.paragraphs[paragraphIdx]"
-                    @click-delete="handleClickDeleteParagraph(paragraphIdx)"
-                  ></CreateParagraph>
-                </v-flex>
-              </template>
-            </v-layout>
+        <v-flex xs-12 md-6>
+          <template
+            v-for="(paragraph, paragraphIdx) in dialogues[0].paragraphs"
+          >
+            <template v-for="(dialogue, dialogueIdx) in dialogues">
+              <CreateParagraph
+                :key="
+                  `create-paragraph-${paragraphIdx}-dialogue=${dialogueIdx}`
+                "
+                :language="dialogue.lang"
+                :showSpeaker="dialogueIdx === 0"
+                :paragraph="dialogue.paragraphs[paragraphIdx]"
+                @click-delete="handleClickDeleteParagraph(paragraphIdx)"
+              ></CreateParagraph>
+            </template>
           </template>
         </v-flex>
       </v-layout>
@@ -42,7 +43,10 @@
 
     <v-layout justify-center>
       <v-flex xs3>
-        <SpeakerModifier :speakers="speakers" @select-speaker="handleSelectSpeaker" />
+        <SpeakerModifier
+          :speakers="speakers"
+          @select-speaker="handleSelectSpeaker"
+        />
       </v-flex>
     </v-layout>
 

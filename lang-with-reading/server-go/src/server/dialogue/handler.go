@@ -27,8 +27,8 @@ func HealthCheck(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// CreateDialogue will Receive Raw Json Dialogue and save it into dialogue and if needed, author and etc
-func CreateDialogue(w http.ResponseWriter, r *http.Request) {
+// HandleCreateDialogue will Receive Raw Json Dialogue and save it into dialogue and if needed, author and etc
+func HandleCreateDialogue(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Comming")
 	var path string
 	var dialogue *RawDialogue
