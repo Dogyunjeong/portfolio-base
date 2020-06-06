@@ -9,10 +9,12 @@ import { setSrc } from '../../../common/utilities/common.util';
 const styles = {
   infoContainer: {
     display: 'flex',
+    flexWrap: 'wrap',
     justifyContent: 'center',
     marginTop: '7.5rem',
   },
   infoWrapper: {
+    order: 1,
     '& a': {
       color: 'black',
       textDecoration: 'none',
@@ -22,6 +24,10 @@ const styles = {
     width: '18rem',
     height: 'auto',
     marginTop: '6rem',
+    '@media (max-width: 720px)': {
+      width: '10rem',
+      marginTop: '0',
+    }
   }
 }
 

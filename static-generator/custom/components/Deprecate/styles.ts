@@ -10,6 +10,9 @@ const baseStyle = {
     fontWeight: 600,
     color: '#e5057d',
     textShadow: '-1.6px -1.6px black, 1.6px -1.6px black, -1.6px 1.6px black, 1.6px 1.6px black',
+    '@media (max-width: 720px)': {
+        fontSize: '2rem',
+    }
   },
   yellow: {
     color: '#feee32',

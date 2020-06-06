@@ -15,20 +15,33 @@ export interface TatiArchiveProps {
 
 const styles = {
   ...baseStyle,
+  emphasize: {
+    ...baseStyle.emphasize,
+    '@media (max-width: 720px)': {
+      fontSize: '2rem',
+    },
+  },
   list: {
     width: '100%',
     marginTop: '6vh',
   },
+  listItemWrapper: {
+    margin: '2rem',
+    '@media (max-width: 720px)': {
+      margin: '0.5rem',
+    },
+  },
   listItem: {
     width: '100%',
     backgroundColor: 'white',
-    margin: '2rem 0',
-    padding: 0,
+    padding: '1rem 0',
     justifyContent: 'center',
     border: '2px solid black',
-    minHeight: '6rem',
     zIndex: 100,
     textAlign: 'center',
+    '@media (max-width: 720px)': {
+      padding: '0.5rem 0'
+    },
   },
   selected: {
     position: 'sticky',
@@ -82,7 +95,7 @@ const TatiArchive: React.SFC<TatiArchiveProps> = (props) => {
           const sharedStyles = _.map(data.sharedStyles?.root, (name) => classes[name])
           const selected = openList === data.uuid
           return (
-            <>
+            <div className={classes.listItemWrapper}>
               <ListItem
                 id={data.uuid}
                 key={`${data.uuid}-label`}
@@ -120,7 +133,7 @@ const TatiArchive: React.SFC<TatiArchiveProps> = (props) => {
                     )
                   })}
                 </Collapse>
-            </>
+            </div>
           )
         })}
       </List>

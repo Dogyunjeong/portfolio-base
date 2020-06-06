@@ -1,4 +1,5 @@
 const midMax = '@media (max-width: 968px)'
+const midMin = '720px'
 
 export default {
   version: 0.1,
@@ -39,6 +40,9 @@ export default {
                   backgroundRepeat: 'no-repeat',
                   padding: '3vh 0',
                   marginTop: '10vh',
+                  [`@media (max-width: ${midMin})`]: {
+                    width: '20rem',
+                  }
                 },
               },
               components: [
@@ -113,6 +117,12 @@ export default {
                 fontWeight: 'bold',
                 color: 'black',
                 textDecoration: 'none',
+              },
+              [`@media (max-width: ${midMin})`]: {
+                '& $logo': {
+                  width: '16rem',
+                  padding: '0 1rem',
+                }
               }
             },
             navItem: {},
