@@ -28,8 +28,9 @@ const TatiHome: React.SFC<TatiHomeProps> = ({ classes = {}, componentData }) => 
             <span className={customClasses.yellow}>COLORFUL WORLD!</span>
           </h1>
           <p>
-            TATI is a multidisciplinary artist who is currently based in Basel, Switzerland.
-            She studied Fashion Design at the Academy of Art and Design FHNW in Switzerland and at the Royal Academy of Arts in Holland.
+            TATI is a multidisciplinary artist who is based in Paris, France. 
+            Currently, she explores Knitwear for Fashion in her Master degree at the Institut Français de la Mode.
+            Previously, she studied Fashion Design at the Academy of Art and Design FHNW in Switzerland and at the Royal Academy of Arts in Holland.
             She has been interning for Charles Jeffrey LOVERBOY based in London, UK and the print designer CUSCUS THE CUCKOOS in Bangkok, Thailand.
           </p>
           <p>
