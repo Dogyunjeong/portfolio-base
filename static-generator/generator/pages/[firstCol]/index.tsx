@@ -1,17 +1,12 @@
-import * as React from 'react'
-import { useRouter } from '../../utilities/router.util'
+import * as React from "react";
+import { useRouter } from "../../utilities/router.util";
 
-import DynamicPage from '../../generator-containers/DynamicPage'
+import DynamicPage from "../../common/containers/Dynamic/DynamicPage";
 
-export interface FirstColProps {
-}
+export interface FirstColProps {}
 const FirstCol: React.FC<FirstColProps> = () => {
-    const router = useRouter()
-    const { firstCol } = router.pageConfig
-    return (
-      <DynamicPage
-        pageConfig={{ firstCol }}
-      />
-    );
-  }
+  const router = useRouter();
+  const { firstCol } = router.pageConfig;
+  return <DynamicPage pageConfig={{ firstCol }} />;
+};
 export default FirstCol;
