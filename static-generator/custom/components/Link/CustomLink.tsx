@@ -1,26 +1,18 @@
 import React from "react";
 
-import { Link } from "../../../components/Link";
 import CustomComponentTypes from "../../../common/types/customComponent.type";
-import { useStyles } from '../../../common/hooks/styles.hook'
+import { useStyles } from "../../../common/hooks/styles.hook";
 
-export interface CustomLinkProps extends CustomComponentTypes.LinkProps {
-  customStyles?: CustomComponentTypes.CustomStyles;
-}
+export interface CustomLinkProps extends CustomComponentTypes.LinkProps {}
 const CustomLink: React.SFC<CustomLinkProps> = ({
-  customStyles = {},
-  title,
-  href,
-  ...others
+  classes,
+  componentData: { href, label, customStyles },
 }) => {
-  const classes = useStyles(customStyles);
+  const customClasses = useStyles(customStyles);
   return (
-    <Link
-      className={classes.root}
-      title={title}
-      href={href}
-      {...others}
-    />
+    <a className={customClasses.root} href={href}>
+      {label}
+    </a>
   );
 };
 
