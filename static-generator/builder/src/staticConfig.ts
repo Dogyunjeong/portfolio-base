@@ -84,7 +84,7 @@ const IMPORT_PUBLIC_ASSETS_PATH: { [key: string]: string } = {
 };
 
 export const IMPORT_PATH: { [key: string]: string } = {
-  ["/assets/png/by_tati.png"]: require("./assets/png/by_tati.png"),
+  ["/assets/svg/by-tati-logo.svg"]: require("./assets/svg/by-tati-logo.svg"),
   ["/assets/svg/nav_item_01.svg"]: require("./assets/svg/nav_item_01.svg"),
   ["/assets/svg/nav_item_02.svg"]: require("./assets/svg/nav_item_02.svg"),
   ["/assets/svg/nav_item_03.svg"]: require("./assets/svg/nav_item_03.svg"),

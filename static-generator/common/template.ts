@@ -21,7 +21,7 @@ export default {
               uuid: "content-image",
               type: "content",
               alt: "logo",
-              src: "/assets/png/by_tati.png",
+              src: "/assets/svg/by-tati-logo.svg",
               class: "logo",
             },
             {
@@ -35,6 +35,7 @@ export default {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
+                  alignItems: "center",
                   backgroundPosition: "center",
                   backgroundImage: 'url("/assets/svg/nav_background.svg")',
                   width: "26rem",
@@ -60,6 +61,7 @@ export default {
                       cursor: "pointer",
                       fontSize: "3.5rem",
                       fontWeight: "bold",
+                      textStroke: "1px black",
                       "&:hover": {
                         color: "#39B54A",
                       },
@@ -77,6 +79,7 @@ export default {
                       cursor: "pointer",
                       fontSize: "3.5rem",
                       fontWeight: "bold",
+                      textStroke: "1px black",
                       "&:hover": {
                         color: "#ff6ec7",
                       },
@@ -94,8 +97,9 @@ export default {
                       cursor: "pointer",
                       fontSize: "3.5rem",
                       fontWeight: "bold",
+                      textStroke: "1px black",
                       "&:hover": {
-                        color: "#39B54A",
+                        color: "#29ABE2",
                       },
                     },
                   },
@@ -111,6 +115,7 @@ export default {
                       cursor: "pointer",
                       fontSize: "3.5rem",
                       fontWeight: "bold",
+                      textStroke: "1px black",
                       "&:hover": {
                         color: "#FFFF00",
                       },
