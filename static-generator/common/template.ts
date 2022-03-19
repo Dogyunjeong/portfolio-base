@@ -46,6 +46,7 @@ export default {
                   marginTop: "55px",
                   [`@media (max-width: ${midMin})`]: {
                     width: "20rem",
+                    maxWidth: "95%",
                   },
                 },
               },
@@ -64,6 +65,8 @@ export default {
                       textStroke: "1px black",
                       "&:hover": {
                         color: "#39B54A",
+                        cursor:
+                          "url(https://storage.googleapis.com/by-tati-public-assets/by-tati-hover-mouse-72.png), auto",
                       },
                     },
                   },
@@ -82,6 +85,8 @@ export default {
                       textStroke: "1px black",
                       "&:hover": {
                         color: "#ff6ec7",
+                        cursor:
+                          "url(https://storage.googleapis.com/by-tati-public-assets/by-tati-hover-mouse-72.png), auto",
                       },
                     },
                   },
@@ -100,6 +105,8 @@ export default {
                       textStroke: "1px black",
                       "&:hover": {
                         color: "#29ABE2",
+                        cursor:
+                          "url(https://storage.googleapis.com/by-tati-public-assets/by-tati-hover-mouse-72.png), auto",
                       },
                     },
                   },
@@ -118,6 +125,8 @@ export default {
                       textStroke: "1px black",
                       "&:hover": {
                         color: "#FFFF00",
+                        cursor:
+                          "url(https://storage.googleapis.com/by-tati-public-assets/by-tati-hover-mouse-72.png), auto",
                       },
                     },
                   },
